@@ -1,0 +1,56 @@
+//
+//  MarvelListContract.swift
+//  atSistemasApp
+//
+//  Created by APPLE on 10/03/2021.
+//  Copyright © 2021 Javier Roche. All rights reserved.
+//
+//
+
+import Foundation
+import PromiseKit
+
+protocol MarvelListEntityContract {
+    
+}
+
+protocol MarvelListInteractorContract: BaseInteractor {
+    var output: MarvelListInteractorOutputContract? {get set}
+    
+    func saveLastUserView()
+    func getMarvelList() -> Promise<[Character]>
+    func isFavouriteChar(id: Int) -> Bool
+    func saveFavouriteChar(id: Int)
+    func deleteFavouriteChar(id: Int)
+}
+
+protocol MarvelListInteractorOutputContract: class {
+    
+}
+
+protocol MarvelListPresenterContract {
+    var view: MarvelListViewContract! { get set }
+    var interactor: MarvelListInteractorContract! { get set }
+    var entity: MarvelListEntityContract? { get set }
+    var wireframe: MarvelListWireframeContract? { get set }
+
+    func viewDidLoad()
+    func viewWillAppear()
+    func isFavouriteChar(id: Int) -> Bool
+    func saveFavouriteChar(id: Int)
+    func deleteFavouriteChar(id: Int)
+}
+
+protocol MarvelListViewContract: BaseViewController {
+    var presenter: MarvelListPresenterContract! { get set }
+    func charListDidChange(charList: [Character])
+}
+
+protocol MarvelListWireframeContract: BaseWireframe {
+    var output: MarvelListWireframeOutputContract? { get set }
+    //var view: UIViewController? { get set }
+}
+
+protocol MarvelListWireframeOutputContract: class {
+
+}
