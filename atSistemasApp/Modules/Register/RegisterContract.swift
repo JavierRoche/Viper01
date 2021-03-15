@@ -7,14 +7,16 @@
 //
 //
 
-import Foundation
+import UIKit
 
 protocol RegisterEntityContract {
     
 }
 
-protocol RegisterInteractorContract: BaseInteractor {
+protocol RegisterInteractorContract  {
     var output: RegisterInteractorOutputContract? {get set}
+    
+    func saveLastUserView()
 }
 
 protocol RegisterInteractorOutputContract: class {
@@ -38,7 +40,7 @@ protocol RegisterViewContract: BaseViewController {
 
 protocol RegisterWireframeContract: BaseWireframe {
     var output: RegisterWireframeOutputContract? { get set }
-    //var view: UIViewController! { get set }
+    var view: UIViewController! { get set }
 }
 
 protocol RegisterWireframeOutputContract: class {

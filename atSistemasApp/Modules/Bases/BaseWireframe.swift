@@ -25,6 +25,7 @@ enum AlertType {
     var title: String {
         switch self {
         case .genericError:
+            // GESTIONAR
             return "_generic_error_title"//.localizedString()
         }
     }
@@ -66,10 +67,7 @@ class BaseWireframe {
             if let modalStyle = modalPresentationStyle {
                 navigation.modalPresentationStyle = modalStyle
             }
-            DispatchQueue.main.async {
-                view?.present(navigation, animated: animated, completion: completion)
-            }
-            
+            view?.present(navigation, animated: animated, completion: completion)
         }
     }
     
@@ -100,7 +98,6 @@ class BaseWireframe {
             } else {
                 originView?.navigationController?.popViewController(animated: animated)
             }
-            
         }
     }
     

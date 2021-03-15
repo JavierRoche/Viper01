@@ -15,7 +15,10 @@ enum Constants {
     static let contentTypeValue: [String] = ["application/json"]
     static let contentType: String = "Content-Type"
     static let preconditionFailure: String = "This method needs to be overriden by concrete subclass."
+    static let urlImageSize: String = "standard_large"
     static let listDashIS: String = "list.dash"
+    static let lockFillIS: String = "list.dash"
+    static let rosetteIS: String = "rosette"
     static let iconImageWarning: String = "exclamationmark.triangle"
     static let appTitle: String = "Marvel Characters"
     static let error: String = "Error"
@@ -29,11 +32,13 @@ enum Constants {
     static let apikeyValue: String = "254e6cdbf08e4e698f90ab85860d963a"
     static let hash: String = "hash"
     static let hashValue: String = "51fa5500ec6da8064d901fdef50dfc4b"
-    
-    
     static let coreDataStorage: String = "DataModel"
     static let entityFavouriteChars: String = "FavouriteChars"
     static let entityFavouriteCharsId: String = "id"
     static let heart: String = "heart"
     static let heartFill: String = "heart.fill"
+    static let marvel: String = "Marvel"
+    static let register: String = "Register"
+    static let permissions: String = "Permissions"
+    static let keyUserView: String = "keyUserView"
 }

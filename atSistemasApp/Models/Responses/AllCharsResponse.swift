@@ -23,6 +23,7 @@ struct DataList: Codable {
 struct Character: Codable, Hashable {
     let id: Int?
     let name: String?
+    let description: String?
     let thumbnail: Thumbnail
     var favourite: Bool?
 }

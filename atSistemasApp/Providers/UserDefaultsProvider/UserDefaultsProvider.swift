@@ -8,8 +8,8 @@
 
 import Foundation
 
-class UserDefaultsProvider {
-    private let keyUserView = "keyUserView"
+class UserDefaultsProvider: UserDefaultsProviderContract {
+    private let keyUserView = Constants.keyUserView
 
     
     // MARK: Public Functions

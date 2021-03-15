@@ -7,10 +7,9 @@
 //
 //
 
-import Foundation
+import UIKit
 
 class RegisterWireframe: BaseWireframe, RegisterWireframeContract {
     weak var output: RegisterWireframeOutputContract?
-    //weak var view: UIViewController!
-
+    weak var view: UIViewController!
 }

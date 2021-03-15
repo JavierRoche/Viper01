@@ -46,6 +46,10 @@ class MarvelListPresenter: MarvelListPresenterContract {
     func deleteFavouriteChar(id: Int) {
         interactor.deleteFavouriteChar(id: id)
     }
+    
+    func charCellTapped(char: Character) {
+        wireframe?.showCharDetailView(char: char)
+    }
 }
 
 

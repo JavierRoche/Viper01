@@ -7,14 +7,16 @@
 //
 //
 
-import Foundation
+import UIKit
 
 protocol PermissionsEntityContract {
     
 }
 
-protocol PermissionsInteractorContract: BaseInteractor {
+protocol PermissionsInteractorContract {
     var output: PermissionsInteractorOutputContract? {get set}
+    
+    func saveLastUserView()
 }
 
 protocol PermissionsInteractorOutputContract: class {
@@ -37,7 +39,7 @@ protocol PermissionsViewContract: BaseViewController {
 
 protocol PermissionsWireframeContract: BaseWireframe {
     var output: PermissionsWireframeOutputContract? { get set }
-    //var view: UIViewController! { get set }
+    var view: UIViewController! { get set }
 }
 
 protocol PermissionsWireframeOutputContract: class {

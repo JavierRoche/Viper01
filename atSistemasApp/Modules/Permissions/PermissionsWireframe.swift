@@ -12,6 +12,5 @@ import UIKit
 
 class PermissionsWireframe: BaseWireframe, PermissionsWireframeContract {
     weak var output: PermissionsWireframeOutputContract?
-    //weak var view: UIViewController!
-    
+    weak var view: UIViewController!
 }

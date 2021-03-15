@@ -14,7 +14,7 @@ protocol MarvelListEntityContract {
     
 }
 
-protocol MarvelListInteractorContract: BaseInteractor {
+protocol MarvelListInteractorContract {
     var output: MarvelListInteractorOutputContract? {get set}
     
     func saveLastUserView()
@@ -39,16 +39,20 @@ protocol MarvelListPresenterContract {
     func isFavouriteChar(id: Int) -> Bool
     func saveFavouriteChar(id: Int)
     func deleteFavouriteChar(id: Int)
+    func charCellTapped(char: Character)
 }
 
 protocol MarvelListViewContract: BaseViewController {
     var presenter: MarvelListPresenterContract! { get set }
+    
     func charListDidChange(charList: [Character])
 }
 
 protocol MarvelListWireframeContract: BaseWireframe {
     var output: MarvelListWireframeOutputContract? { get set }
-    //var view: UIViewController? { get set }
+    var view: UIViewController? { get set }
+    
+    func showCharDetailView(char: Character)
 }
 
 protocol MarvelListWireframeOutputContract: class {

@@ -34,7 +34,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
         activityIndicator.center = self.view.center
         view.addSubview(self.activityIndicator)
         activityIndicator.startAnimating()
-        self.presenter.viewWillAppear()
+        presenter.viewWillAppear()
     }
 
     
@@ -62,7 +62,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
     fileprivate func updateWithFavourites() {
         self.charList = charList.map({ character in
             var mutabledChar = character
-            mutabledChar.favourite = self.presenter.isFavouriteChar(id: character.id ?? 0)
+            mutabledChar.favourite = presenter.isFavouriteChar(id: character.id ?? 0)
             return mutabledChar
         })
     }
@@ -73,7 +73,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
 
 extension MarvelListView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        presenter.charCellTapped(char: charList[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -27,7 +27,7 @@ class RegisterBuilder {
         view.presenter.wireframe = wireframe
         
         view.presenter.wireframe?.output = presenter
-        //view.presenter.wireframe.view = view
+        view.presenter.wireframe?.view = view
         
         return view
     }

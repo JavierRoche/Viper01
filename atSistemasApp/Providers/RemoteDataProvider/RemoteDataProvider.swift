@@ -29,7 +29,7 @@ class RemoteDataProvider: RemoteDataProviderContract {
         let request = AllCharsRequest()
         
         return Promise<[Character]> { promise in
-            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue).responseDecodable(of: AllCharsResponse.self) { (response) in
+            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue).responseDecodable(of: AllCharsResponse.self) { response in
                 debugPrint(response)
                 
                 do {
@@ -37,7 +37,26 @@ class RemoteDataProvider: RemoteDataProviderContract {
                     promise.fulfill(charList)
 
                 } catch {
-                    print("BAD RESPONSE DATA")
+                    print("Bad data response")
+                    promise.reject(NetworkError.AllCharsResponseError)
+                }
+            }
+        }
+    }
+    
+    func fetchCharComics(charId: Int) -> Promise<[Comic]> {
+        let request = CharComicsRequest(id: charId)
+        
+        return Promise<[Comic]> { promise in
+            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue).responseDecodable(of: CharComicsResponse.self) { (response) in
+                debugPrint(response)
+                
+                do {
+                    let comicList = try response.result.get().data.results as [Comic]
+                    promise.fulfill(comicList)
+
+                } catch {
+                    print("Bad data response")
                     promise.reject(NetworkError.AllCharsResponseError)
                 }
             }

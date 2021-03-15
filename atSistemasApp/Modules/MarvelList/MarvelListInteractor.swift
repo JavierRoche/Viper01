@@ -43,6 +43,9 @@ class MarvelListInteractor: MarvelListInteractorContract {
                 
             }.done { response in
                 promise.fulfill(response)
+                
+            }.catch { error in
+                
             }
         }
     }

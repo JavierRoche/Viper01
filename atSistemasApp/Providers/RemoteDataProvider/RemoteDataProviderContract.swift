@@ -11,5 +11,6 @@ import PromiseKit
 
 protocol RemoteDataProviderContract {
     func fetchAllChars() -> Promise<[Character]>
+    func fetchCharComics(charId: Int) -> Promise<[Comic]>
 }
 

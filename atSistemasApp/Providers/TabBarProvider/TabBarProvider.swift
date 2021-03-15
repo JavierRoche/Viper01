@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarProvider: UITabBarController {
+class TabBarProvider: UITabBarController, TabBarProviderContract {
     // MARK: LifeCycle
     
     convenience init(viewIndex: Int) {
@@ -19,9 +19,9 @@ class TabBarProvider: UITabBarController {
         let registerView = RegisterBuilder.build()
         let permissionsView = PermissionsBuilder.build()
         
-        marvelListView.tabBarItem = UITabBarItem.init(title: "Marvel", image: UIImage.init(systemName: "list.dash"), tag: 0)
-        registerView.tabBarItem = UITabBarItem.init(title: "Register", image: UIImage.init(systemName: "lock.fill"), tag: 1)
-        permissionsView.tabBarItem = UITabBarItem.init(title: "Permissions", image: UIImage.init(systemName: "rosette"), tag: 2)
+        marvelListView.tabBarItem = UITabBarItem.init(title: Constants.marvel, image: UIImage.init(systemName: Constants.listDashIS), tag: 0)
+        registerView.tabBarItem = UITabBarItem.init(title: Constants.register, image: UIImage.init(systemName: Constants.lockFillIS), tag: 1)
+        permissionsView.tabBarItem = UITabBarItem.init(title: Constants.permissions, image: UIImage.init(systemName: Constants.rosetteIS), tag: 2)
         
         let marvelListViewNavigationController = UINavigationController.init(rootViewController: marvelListView)
         let registerViewNavigationController = UINavigationController.init(rootViewController: registerView)

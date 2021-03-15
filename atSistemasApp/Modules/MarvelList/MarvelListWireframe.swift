@@ -7,11 +7,14 @@
 //
 //
 
-import Foundation
 import UIKit
 
 class MarvelListWireframe: BaseWireframe, MarvelListWireframeContract {
     weak var output: MarvelListWireframeOutputContract?
-    //weak var view: UIViewController!
+    weak var view: UIViewController?
     
+    func showCharDetailView(char: Character) {
+        let detailModule = MarvelDetailBuilder.build(char: char)
+        self.presentView(from: self.view, useCase: detailModule, withTransition: .modal, completion: nil)
+    }
 }
