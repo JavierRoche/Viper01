@@ -12,6 +12,7 @@
 		186AC92725FA5D47009A40B6 /* RemoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC92625FA5D47009A40B6 /* RemoteDataProvider.swift */; };
 		186AC92A25FA5DBA009A40B6 /* RemoteDataProviderContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC92925FA5DBA009A40B6 /* RemoteDataProviderContract.swift */; };
 		186AC92F25FA60C7009A40B6 /* AllCharsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC92E25FA60C7009A40B6 /* AllCharsRequest.swift */; };
+		189A1E67260132C200B9B41D /* MarvelDetailViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A1E66260132C200B9B41D /* MarvelDetailViewSource.swift */; };
 		18D5BD4D25F902B70037CB70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4C25F902B70037CB70 /* AppDelegate.swift */; };
 		18D5BD4F25F902B70037CB70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */; };
 		18D5BD5625F902C70037CB70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD5525F902C70037CB70 /* Assets.xcassets */; };
@@ -90,6 +91,7 @@
 		186AC92625FA5D47009A40B6 /* RemoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProvider.swift; sourceTree = "<group>"; };
 		186AC92925FA5DBA009A40B6 /* RemoteDataProviderContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProviderContract.swift; sourceTree = "<group>"; };
 		186AC92E25FA60C7009A40B6 /* AllCharsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCharsRequest.swift; sourceTree = "<group>"; };
+		189A1E66260132C200B9B41D /* MarvelDetailViewSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelDetailViewSource.swift; sourceTree = "<group>"; };
 		18D5BD4925F902B70037CB70 /* atSistemasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atSistemasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D5BD4C25F902B70037CB70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				18DFC1A725FE7E49005632EE /* MarvelDetailPresenter.swift */,
 				18DFC1AA25FE7E49005632EE /* MarvelDetailView.swift */,
 				18DFC1AB25FE7E49005632EE /* MarvelDetailView.xib */,
+				189A1E66260132C200B9B41D /* MarvelDetailViewSource.swift */,
 				18DFC1AD25FE7E49005632EE /* MarvelDetailWireframe.swift */,
 			);
 			path = MarvelDetail;
@@ -659,6 +662,7 @@
 				18DFC1AF25FE7E49005632EE /* MarvelDetailPresenter.swift in Sources */,
 				18DFC1C325FE9312005632EE /* MarvelDetailDataCell.swift in Sources */,
 				186AC91425FA1DE8009A40B6 /* BaseViewController.swift in Sources */,
+				189A1E67260132C200B9B41D /* MarvelDetailViewSource.swift in Sources */,
 				18DFC1A025FD0855005632EE /* CoreDataProviderContract.swift in Sources */,
 				18D5BD8525F90ECE0037CB70 /* MarvelListView.swift in Sources */,
 				18D5BD9425F90EE70037CB70 /* RegisterInteractor.swift in Sources */,

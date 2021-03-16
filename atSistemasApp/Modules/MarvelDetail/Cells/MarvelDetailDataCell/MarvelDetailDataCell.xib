@@ -25,8 +25,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="15U-KS-qXT">
-                                <rect key="frame" x="0.0" y="32.5" width="398" height="38.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                <rect key="frame" x="0.0" y="47" width="398" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -35,10 +35,9 @@
                             <constraint firstAttribute="trailing" secondItem="15U-KS-qXT" secondAttribute="trailing" id="2Mx-8C-C9p"/>
                             <constraint firstAttribute="trailing" secondItem="CHw-0i-s4i" secondAttribute="trailing" id="34x-SD-R2Z"/>
                             <constraint firstItem="15U-KS-qXT" firstAttribute="leading" secondItem="aXd-xZ-Thz" secondAttribute="leading" id="7HW-e9-IJl"/>
-                            <constraint firstItem="15U-KS-qXT" firstAttribute="top" secondItem="CHw-0i-s4i" secondAttribute="bottom" id="A6R-lS-iLy"/>
                             <constraint firstAttribute="bottom" secondItem="15U-KS-qXT" secondAttribute="bottom" id="B9F-3R-mcr"/>
                             <constraint firstItem="CHw-0i-s4i" firstAttribute="leading" secondItem="aXd-xZ-Thz" secondAttribute="leading" id="Dye-XF-lXt"/>
-                            <constraint firstItem="15U-KS-qXT" firstAttribute="top" secondItem="CHw-0i-s4i" secondAttribute="bottom" id="ZlX-sK-19u"/>
+                            <constraint firstItem="15U-KS-qXT" firstAttribute="top" secondItem="CHw-0i-s4i" secondAttribute="bottom" constant="16" id="FjM-Ls-8BI"/>
                             <constraint firstItem="CHw-0i-s4i" firstAttribute="top" secondItem="aXd-xZ-Thz" secondAttribute="top" id="yz3-Bk-buX"/>
                         </constraints>
                     </stackView>

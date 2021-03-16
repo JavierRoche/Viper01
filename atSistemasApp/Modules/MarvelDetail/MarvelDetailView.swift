@@ -9,6 +9,20 @@
 
 import UIKit
 
+enum Sections: Int {
+    case data = 0
+    case comics
+    
+    var name: String {
+        switch self {
+        case .data:
+            return "Personal data"
+        case .comics:
+            return "Comics"
+        }
+    }
+}
+
 class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
     @IBOutlet weak var charImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
@@ -53,6 +67,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
         tableView.register(nib, forCellReuseIdentifier: String(describing: MarvelDetailDataCell.self))
         nib = UINib.init(nibName: String(describing: MarvelDetailComicsCell.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: String(describing: MarvelDetailComicsCell.self))
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
         tableView.rowHeight = UITableView.automaticDimension
@@ -78,33 +93,3 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
         }
     }
 }
-
-
-// MARK: UITableView DataSource
-
-extension MarvelDetailView: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch indexPath.row {
-        case 0:
-            /// Char data cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailDataCell.self), for: indexPath) as? MarvelDetailDataCell else { fatalError() }
-            cell.configureCell(char: char)
-            return cell
-         
-        case 1:
-            /// Comics cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailComicsCell.self), for: indexPath) as? MarvelDetailComicsCell else { fatalError() }
-            cell.configureCell(comicList: comicList)
-            return cell
-        
-        default: break
-        }
-        
-        return UITableViewCell()
-    }
-}
-
