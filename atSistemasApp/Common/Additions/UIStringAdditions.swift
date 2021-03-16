@@ -14,6 +14,7 @@ enum Constants {
     static let finalURLError: String = "Unable to retrieve final URL"
     static let contentTypeValue: [String] = ["application/json"]
     static let contentType: String = "Content-Type"
+    static let refreshMessage: String = "Pull to refresh"
     static let preconditionFailure: String = "This method needs to be overriden by concrete subclass."
     static let urlImageSize: String = "standard_large"
     static let listDashIS: String = "list.dash"
@@ -22,6 +23,7 @@ enum Constants {
     static let iconImageWarning: String = "exclamationmark.triangle"
     static let appTitle: String = "Marvel Characters"
     static let error: String = "Error"
+    static let accept: String = "Accept"
     static let NSCoderError: String = "init(coder:) has not been implemented"
     static let https: String = "https"
     static let apiURL: String = "https://gateway.marvel.com"

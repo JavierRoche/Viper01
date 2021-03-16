@@ -19,8 +19,8 @@ class ComicCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        imageView.layer.cornerRadius = 8.0
-        imageView.clipsToBounds = true
+        contentView.layer.cornerRadius = 8.0
+        contentView.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {

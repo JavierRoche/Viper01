@@ -10,8 +10,19 @@ import Foundation
 import PromiseKit
 import Alamofire
 
-enum NetworkError: Error {
-    case AllCharsResponseError
+enum NetworkError: Error, LocalizedError {
+    case badResponse
+    case badData
+
+    /// Localized description
+    var localizedDescription: String {
+        switch self {
+        case .badResponse:
+            return "network_error_parsing_description"
+        case .badData:
+            return "network_error_bad_data"
+        }
+    }
 }
 
 class RemoteDataProvider: RemoteDataProviderContract {
@@ -29,16 +40,21 @@ class RemoteDataProvider: RemoteDataProviderContract {
         let request = AllCharsRequest()
         
         return Promise<[Character]> { promise in
-            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue).responseDecodable(of: AllCharsResponse.self) { response in
-                debugPrint(response)
+            session.request(request.getRequest())
+                .validate(contentType: Constants.contentTypeValue)
+                .responseDecodable(of: AllCharsResponse.self) { response in
                 
+                if let httpResponse = response.response, httpResponse.statusCode >= 400 && httpResponse.statusCode < 500 {
+                    promise.reject(NetworkError.badResponse)
+                    return
+                }
+                    
                 do {
                     let charList = try response.result.get().data.results as [Character]
                     promise.fulfill(charList)
 
                 } catch {
-                    print("Bad data response")
-                    promise.reject(NetworkError.AllCharsResponseError)
+                    promise.reject(NetworkError.badData)
                 }
             }
         }
@@ -48,16 +64,22 @@ class RemoteDataProvider: RemoteDataProviderContract {
         let request = CharComicsRequest(id: charId)
         
         return Promise<[Comic]> { promise in
-            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue).responseDecodable(of: CharComicsResponse.self) { (response) in
-                debugPrint(response)
+            session.request(request.getRequest())
+                .validate(contentType: Constants.contentTypeValue)
+                .responseDecodable(of: CharComicsResponse.self) { (response) in
                 
+                if let httpResponse = response.response, httpResponse.statusCode >= 400 && httpResponse.statusCode < 500 {
+                    promise.reject(NetworkError.badResponse)
+                    return
+                }
+                    
                 do {
                     let comicList = try response.result.get().data.results as [Comic]
                     promise.fulfill(comicList)
 
                 } catch {
                     print("Bad data response")
-                    promise.reject(NetworkError.AllCharsResponseError)
+                    promise.reject(NetworkError.badData)
                 }
             }
         }

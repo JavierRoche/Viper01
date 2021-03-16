@@ -31,7 +31,10 @@ class MarvelDetailPresenter: MarvelDetailPresenterContract {
             self?.view.comicListDidChange(comicList: comicList)
             
         }.catch { [weak self] error in
-            self?.wireframe?.showErrorModalAlert(nil, content: error.localizedDescription, completion: nil)
+            guard let promiseError = error as? NetworkError else { return }
+            let action = UIAlertAction(title: Constants.accept, style: .default, handler: nil)
+            self?.wireframe?.showErrorModalAlert(self?.view, content: promiseError.localizedDescription, customActions: [action], completion: nil)
+            self?.view.comicListDidChange(comicList: [])
         }
     }
 }

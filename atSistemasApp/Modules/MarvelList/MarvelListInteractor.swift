@@ -45,7 +45,7 @@ class MarvelListInteractor: MarvelListInteractorContract {
                 promise.fulfill(response)
                 
             }.catch { error in
-                
+                promise.reject(error)
             }
         }
     }

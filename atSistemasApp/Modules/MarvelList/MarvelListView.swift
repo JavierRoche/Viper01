@@ -17,6 +17,12 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
     
     /// Characters to show
     var charList: [Character] = []
+    lazy var refreshControl: UIRefreshControl = {
+        let refresh: UIRefreshControl = UIRefreshControl()
+        refresh.attributedTitle = NSAttributedString(string: Constants.refreshMessage)
+        refresh.addTarget(self, action: #selector(refreshTableViewData), for: .valueChanged)
+        return refresh
+    }()
 
     
 	// MARK: LifeCycle
@@ -45,16 +51,22 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
         
         updateWithFavourites()
         activityIndicator.stopAnimating()
+        refreshControl.endRefreshing()
         tableView.reloadData()
     }
     
     
     // MARK: Private Functions
     
+    @objc func refreshTableViewData() {
+        presenter.viewWillAppear()
+    }
+    
     fileprivate func configureUI() {
         /// Register cell of table and delegate / datasource
         let nib = UINib.init(nibName: String(describing: MarvelListCell.self), bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: String(describing: MarvelListCell.self))
+        tableView.refreshControl = refreshControl
         tableView.dataSource = self
         tableView.delegate = self
     }

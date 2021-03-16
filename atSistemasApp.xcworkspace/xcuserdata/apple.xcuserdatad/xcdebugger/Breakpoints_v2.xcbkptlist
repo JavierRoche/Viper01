@@ -7,48 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F8B32F24-5328-4472-9518-D484AC997B96"
-            shouldBeEnabled = "Yes"
+            uuid = "BDCC7986-307E-4FCA-BC2A-6B2F0D5D0616"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "atSistemasApp/Modules/Bases/BaseViewController.swift"
+            filePath = "atSistemasApp/Modules/MarvelList/MarvelListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
-            landmarkName = "viewDidLoad()"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "charListDidChange(charList:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BAC12303-9E18-496C-AE87-90E260C50A49"
+            uuid = "BA7CB971-743B-4B2B-B5A1-33EBDC05799E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "atSistemasApp/Modules/Bases/BaseViewController.swift"
+            filePath = "atSistemasApp/Modules/MarvelList/MarvelListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "35"
-            endingLineNumber = "35"
-            landmarkName = "deinit"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "8D6C590C-632D-4C01-96D9-A2D60245F144"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "atSistemasApp/Modules/Bases/BaseViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "init(nibName:bundle:)"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "refreshTableViewData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

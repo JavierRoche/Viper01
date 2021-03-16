@@ -38,6 +38,9 @@ class MarvelDetailInteractor: MarvelDetailInteractorContract {
                 
             }.done { response in
                 promise.fulfill(response)
+                
+            }.catch { error in
+                promise.reject(error)
             }
         }
     }
