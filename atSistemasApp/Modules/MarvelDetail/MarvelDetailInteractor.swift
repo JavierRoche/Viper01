@@ -37,7 +37,11 @@ class MarvelDetailInteractor: MarvelDetailInteractorContract {
                 remoteDataProvider.fetchCharComics(charId: char.id ?? 0)
                 
             }.done { response in
-                promise.fulfill(response)
+                let comicList = response.map ({
+                    
+                    Comic(comicDAO: $0)
+                })
+                promise.fulfill(comicList)
                 
             }.catch { error in
                 promise.reject(error)

@@ -21,6 +21,12 @@ struct CoverList: Codable {
 
 struct Comic: Codable, Hashable {
     let id: Int?
-    let name: String?
-    let thumbnail: Thumbnail
+    let title: String?
+    let thumbnail: Thumbnail?
+    
+    init(comicDAO: ComicDAO) {
+        id = comicDAO.id
+        title = comicDAO.title
+        thumbnail = Thumbnail(thumbnailDAO: comicDAO.thumbnail)
+    }
 }

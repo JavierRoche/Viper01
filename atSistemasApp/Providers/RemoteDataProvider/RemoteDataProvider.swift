@@ -18,9 +18,9 @@ enum NetworkError: Error, LocalizedError {
     var localizedDescription: String {
         switch self {
         case .badResponse:
-            return "network_error_parsing_description"
+            return Constants.apiBadResponse
         case .badData:
-            return "network_error_bad_data"
+            return Constants.apiBadData
         }
     }
 }
@@ -40,46 +40,55 @@ class RemoteDataProvider: RemoteDataProviderContract {
         let request = AllCharsRequest()
         
         return Promise<[Character]> { promise in
-            session.request(request.getRequest())
-                .validate(contentType: Constants.contentTypeValue)
+            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue)
                 .responseDecodable(of: AllCharsResponse.self) { response in
                 
-                if let httpResponse = response.response, httpResponse.statusCode >= 400 && httpResponse.statusCode < 500 {
-                    promise.reject(NetworkError.badResponse)
-                    return
-                }
-                    
-                do {
-                    let charList = try response.result.get().data.results as [Character]
-                    promise.fulfill(charList)
+                switch response.result {
+                case .success(_):
+                    do {
+                        let charList = try response.result.get().data.results as [Character]
+                        promise.fulfill(charList)
 
-                } catch {
-                    promise.reject(NetworkError.badData)
+                    } catch {
+                        promise.reject(NetworkError.badData)
+                    }
+
+                case .failure(_):
+                    promise.reject(NetworkError.badResponse)
                 }
             }
         }
     }
     
-    func fetchCharComics(charId: Int) -> Promise<[Comic]> {
+    func fetchCharComics(charId: Int) -> Promise<[ComicDAO]> {
         let request = CharComicsRequest(id: charId)
         
-        return Promise<[Comic]> { promise in
-            session.request(request.getRequest())
-                .validate(contentType: Constants.contentTypeValue)
-                .responseDecodable(of: CharComicsResponse.self) { (response) in
+        return Promise<[ComicDAO]> { promise in
+            session.request(request.getRequest()).validate(contentType: Constants.contentTypeValue)
+                .responseJSON { response in
                 
-                if let httpResponse = response.response, httpResponse.statusCode >= 400 && httpResponse.statusCode < 500 {
-                    promise.reject(NetworkError.badResponse)
-                    return
-                }
-                    
-                do {
-                    let comicList = try response.result.get().data.results as [Comic]
-                    promise.fulfill(comicList)
+                switch response.result {
+                case .success(_):
+                    do {
+                        if let responseDic = try response.result.get() as? [String: Any],
+                            let dataKeyDic = responseDic[Constants.keyData] as? [String: Any],
+                            let resultsKeyDic = dataKeyDic[Constants.keyResults] as? [[String: Any]] {
+                            
+                            var comicDAOList: [ComicDAO] = []
+                            for comicDic in resultsKeyDic {
+                                let comicDAO: ComicDAO = try ComicDAO(JSON: comicDic)
+                                comicDAOList.append(comicDAO)
+                            }
+                            promise.fulfill(comicDAOList)
+                        }
 
-                } catch {
-                    print("Bad data response")
-                    promise.reject(NetworkError.badData)
+                    } catch {
+                        print("Bad data response")
+                        promise.reject(NetworkError.badData)
+                    }
+
+                case .failure(_):
+                    promise.reject(NetworkError.badResponse)
                 }
             }
         }

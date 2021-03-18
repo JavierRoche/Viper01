@@ -32,7 +32,7 @@ class ComicCell: UICollectionViewCell {
     
     func configureCell(comic: Comic) {
         /// Tune image url and retrieve with Kingfisher
-        let http = "\(comic.thumbnail.path ?? String())/\(Constants.urlImageSize).\(comic.thumbnail.imageExtension ?? String())"
+        let http = "\(comic.thumbnail?.path ?? String())/\(Constants.urlImageSize).\(comic.thumbnail?.imageExtension ?? String())"
         let imageURL = Constants.https + http.dropFirst(4)
         guard let url = URL.init(string: imageURL) else { return }
         imageView.kf.setImage(with: url) { [weak self] result in

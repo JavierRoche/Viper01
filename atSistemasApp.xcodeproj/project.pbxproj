@@ -72,6 +72,8 @@
 		18DFC1CE25FE9D3D005632EE /* ComicCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18DFC1CD25FE9D3D005632EE /* ComicCell.xib */; };
 		18DFC1D225FFD754005632EE /* TabBarProviderContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC1D125FFD754005632EE /* TabBarProviderContract.swift */; };
 		18DFC1D425FFD7BF005632EE /* UserDefaultsProviderContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC1D325FFD7BF005632EE /* UserDefaultsProviderContract.swift */; };
+		18E666EF260239DA00EEC3A3 /* ComicDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E666EE260239DA00EEC3A3 /* ComicDAO.swift */; };
+		18E666F12602582300EEC3A3 /* ThumbnailDAO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18E666F02602582300EEC3A3 /* ThumbnailDAO.swift */; };
 		21FFCC1108DE9080BBD7A260 /* Pods_atSistemasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B37E29E9D33CDBCF21C6290 /* Pods_atSistemasApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +157,8 @@
 		18DFC1CD25FE9D3D005632EE /* ComicCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ComicCell.xib; sourceTree = "<group>"; };
 		18DFC1D125FFD754005632EE /* TabBarProviderContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarProviderContract.swift; sourceTree = "<group>"; };
 		18DFC1D325FFD7BF005632EE /* UserDefaultsProviderContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsProviderContract.swift; sourceTree = "<group>"; };
+		18E666EE260239DA00EEC3A3 /* ComicDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDAO.swift; sourceTree = "<group>"; };
+		18E666F02602582300EEC3A3 /* ThumbnailDAO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailDAO.swift; sourceTree = "<group>"; };
 		261F00AD0D84A022B40395AF /* Pods-atSistemasApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atSistemasApp.release.xcconfig"; path = "Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.release.xcconfig"; sourceTree = "<group>"; };
 		4102CCB37B8FADB6377F5D46 /* Pods-atSistemasApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atSistemasApp.debug.xcconfig"; path = "Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B37E29E9D33CDBCF21C6290 /* Pods_atSistemasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_atSistemasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +223,7 @@
 		186AC92B25FA6083009A40B6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				18E666ED260239C800EEC3A3 /* DAO */,
 				18DFC1A125FD3955005632EE /* CoreData */,
 				18DFC19225FBB719005632EE /* Network */,
 				186AC92C25FA6090009A40B6 /* Request */,
@@ -480,6 +485,15 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		18E666ED260239C800EEC3A3 /* DAO */ = {
+			isa = PBXGroup;
+			children = (
+				18E666EE260239DA00EEC3A3 /* ComicDAO.swift */,
+				18E666F02602582300EEC3A3 /* ThumbnailDAO.swift */,
+			);
+			path = DAO;
+			sourceTree = "<group>";
+		};
 		28BF37423C62C4F787C21738 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,8 +708,10 @@
 				18DFC1CC25FE9D30005632EE /* ComicCell.swift in Sources */,
 				18DFC1B725FE854C005632EE /* CharComicsRequest.swift in Sources */,
 				18D5BD7825F90CA10037CB70 /* UserDefaultsProvider.swift in Sources */,
+				18E666F12602582300EEC3A3 /* ThumbnailDAO.swift in Sources */,
 				18DFC1D425FFD7BF005632EE /* UserDefaultsProviderContract.swift in Sources */,
 				18D5BD9125F90EE70037CB70 /* RegisterContract.swift in Sources */,
+				18E666EF260239DA00EEC3A3 /* ComicDAO.swift in Sources */,
 				18D5BDA825F90EF40037CB70 /* PermissionsWireframe.swift in Sources */,
 				18D5BD8225F90ECE0037CB70 /* MarvelListPresenter.swift in Sources */,
 				18DFC1B025FE7E49005632EE /* MarvelDetailBuilder.swift in Sources */,

@@ -36,4 +36,9 @@ struct Thumbnail: Codable, Hashable {
         case path
         case imageExtension = "extension"
     }
+    
+    init(thumbnailDAO: ThumbnailDAO) {
+        path = thumbnailDAO.path
+        imageExtension = thumbnailDAO.imageExtension
+    }
 }
