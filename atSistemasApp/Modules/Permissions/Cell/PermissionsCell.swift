@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 
 protocol PermissionsCellDelegate: class {
     func onChangeState(permission: Permission?)
@@ -76,21 +77,21 @@ class PermissionsCell: UITableViewCell {
     }
     
     fileprivate func setConstraints() {
-        NSLayoutConstraint.activate([
-            permissionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
-            permissionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16),
-            permissionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
-        ])
+        permissionLabel.snp.remakeConstraints { make in
+            make.top.equalTo(snp.top).inset(16)
+            make.bottom.equalTo(snp.bottom).offset(16)
+            make.leading.equalTo(snp.leading).inset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            grantedLabel.centerYAnchor.constraint(equalTo: permissionLabel.centerYAnchor),
-            grantedLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0)
-        ])
+        grantedLabel.snp.remakeConstraints { make in
+            make.centerY.equalTo(permissionLabel.snp.centerY)
+            make.trailing.equalTo(snp.trailing).offset(16)
+        }
         
-        NSLayoutConstraint.activate([
-            permissionSwitch.centerYAnchor.constraint(equalTo: permissionLabel.centerYAnchor),
-            permissionSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0)
-        ])
+        permissionSwitch.snp.remakeConstraints { make in
+            make.centerY.equalTo(permissionLabel.snp.centerY)
+            make.trailing.equalTo(snp.trailing).inset(16)
+        }
     }
     
     fileprivate func configureUI() {

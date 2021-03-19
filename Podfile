@@ -10,4 +10,5 @@ target 'atSistemasApp' do
   pod 'PromiseKit'
   pod 'ObjectMapper'
   pod 'Kingfisher'
+  pod 'SnapKit'
 end
