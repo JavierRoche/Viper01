@@ -10,9 +10,10 @@ import Foundation
 
 class UserDefaultsProvider: UserDefaultsProviderContract {
     private let keyUserView = Constants.keyUserView
+    private let keyFirstExecution = Constants.keyFirstExecution
 
     
-    // MARK: Public Functions
+    // MARK: User View
     
     func saveUserView(view: Int) {
         UserDefaults.standard.set(view, forKey: keyUserView)
@@ -26,4 +27,22 @@ class UserDefaultsProvider: UserDefaultsProviderContract {
             return 0
         }
     }
+    
+    
+    // MARK: Simulated Data Load
+    
+    func setFirstExecution() {
+        UserDefaults.standard.set(false, forKey: keyFirstExecution)
+    }
+    
+    func isFirstExecution() -> Bool {
+        if UserDefaults.standard.dictionaryRepresentation().keys.contains(keyFirstExecution) {
+            return UserDefaults.standard.bool(forKey: keyFirstExecution)
+            
+        } else {
+            return true
+        }
+    }
+    
+    
 }

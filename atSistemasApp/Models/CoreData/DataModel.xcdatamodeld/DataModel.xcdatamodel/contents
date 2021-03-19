@@ -3,7 +3,12 @@
     <entity name="FavouriteChars" representedClassName="FavouriteChars" syncable="YES" codeGenerationType="class">
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
+    <entity name="Permission" representedClassName="Permission" syncable="YES" codeGenerationType="class">
+        <attribute name="state" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="FavouriteChars" positionX="-36" positionY="9" width="128" height="58"/>
+        <element name="Permission" positionX="-36" positionY="18" width="128" height="73"/>
     </elements>
 </model>

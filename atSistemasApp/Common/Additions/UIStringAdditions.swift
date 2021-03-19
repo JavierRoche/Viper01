@@ -43,8 +43,16 @@ enum Constants {
     static let register: String = "Register"
     static let permissions: String = "Permissions"
     static let keyUserView: String = "keyUserView"
+    static let keyFirstExecution: String = "keyFirstExecution"
     static let keyData: String = "data"
     static let keyResults: String = "results"
     static let apiBadResponse: String = "network_error_parsing_description"
     static let apiBadData: String = "network_error_bad_data"
+    
+    /// Permissions Tab
+    static let todo: String = "TODO"
+    static let done: String = "DONE"
+    static let entityPermission: String = "Permission"
+    static let entityPermissionState: String = "state"
+    static let entityPermissionTitle: String = "title"
 }

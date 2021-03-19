@@ -17,6 +17,8 @@ protocol PermissionsInteractorContract {
     var output: PermissionsInteractorOutputContract? {get set}
     
     func saveLastUserView()
+    func simulatedDataCreation()
+    func getPermissionList() -> [Permission]
 }
 
 protocol PermissionsInteractorOutputContract: class {
@@ -35,6 +37,8 @@ protocol PermissionsPresenterContract {
 
 protocol PermissionsViewContract: BaseViewController {
     var presenter: PermissionsPresenterContract! { get set }
+    
+    func permissionListDidChange(permissionList: [Permission])
 }
 
 protocol PermissionsWireframeContract: BaseWireframe {

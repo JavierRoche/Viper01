@@ -19,11 +19,12 @@ class PermissionsPresenter: PermissionsPresenterContract {
     // MARK: Public Functions
     
     func viewDidLoad() {
-
+        interactor.simulatedDataCreation()
     }
 
     func viewWillAppear() {
         interactor.saveLastUserView()
+        view.permissionListDidChange(permissionList: interactor.getPermissionList())
     }
 }
 

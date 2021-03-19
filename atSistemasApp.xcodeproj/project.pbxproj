@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		185F25382603833E000E394B /* PermissionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185F25372603833E000E394B /* PermissionsCell.xib */; };
+		185F253A2603834D000E394B /* PermissionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F25392603834D000E394B /* PermissionsCell.swift */; };
+		185F253C2603A62C000E394B /* PermissionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F253B2603A62C000E394B /* PermissionState.swift */; };
 		186AC91225FA1DB5009A40B6 /* BaseWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC91125FA1DB5009A40B6 /* BaseWireframe.swift */; };
 		186AC91425FA1DE8009A40B6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC91325FA1DE8009A40B6 /* BaseViewController.swift */; };
 		186AC92725FA5D47009A40B6 /* RemoteDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC92625FA5D47009A40B6 /* RemoteDataProvider.swift */; };
@@ -41,7 +44,6 @@
 		18D5BDA325F90EF40037CB70 /* PermissionsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9B25F90EF30037CB70 /* PermissionsBuilder.swift */; };
 		18D5BDA425F90EF40037CB70 /* PermissionsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9C25F90EF30037CB70 /* PermissionsInteractor.swift */; };
 		18D5BDA525F90EF40037CB70 /* PermissionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9D25F90EF30037CB70 /* PermissionsView.swift */; };
-		18D5BDA625F90EF40037CB70 /* PermissionsView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD9E25F90EF30037CB70 /* PermissionsView.xib */; };
 		18D5BDA725F90EF40037CB70 /* PermissionsEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9F25F90EF30037CB70 /* PermissionsEntity.swift */; };
 		18D5BDA825F90EF40037CB70 /* PermissionsWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BDA025F90EF30037CB70 /* PermissionsWireframe.swift */; };
 		18DFC18B25FB773B005632EE /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18DFC18825FB773B005632EE /* UIFontExtension.swift */; };
@@ -88,6 +90,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		185F25372603833E000E394B /* PermissionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsCell.xib; sourceTree = "<group>"; };
+		185F25392603834D000E394B /* PermissionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCell.swift; sourceTree = "<group>"; };
+		185F253B2603A62C000E394B /* PermissionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionState.swift; sourceTree = "<group>"; };
 		186AC91125FA1DB5009A40B6 /* BaseWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseWireframe.swift; sourceTree = "<group>"; };
 		186AC91325FA1DE8009A40B6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		186AC92625FA5D47009A40B6 /* RemoteDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteDataProvider.swift; sourceTree = "<group>"; };
@@ -126,7 +131,6 @@
 		18D5BD9B25F90EF30037CB70 /* PermissionsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsBuilder.swift; sourceTree = "<group>"; };
 		18D5BD9C25F90EF30037CB70 /* PermissionsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsInteractor.swift; sourceTree = "<group>"; };
 		18D5BD9D25F90EF30037CB70 /* PermissionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsView.swift; sourceTree = "<group>"; };
-		18D5BD9E25F90EF30037CB70 /* PermissionsView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsView.xib; sourceTree = "<group>"; };
 		18D5BD9F25F90EF30037CB70 /* PermissionsEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsEntity.swift; sourceTree = "<group>"; };
 		18D5BDA025F90EF30037CB70 /* PermissionsWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsWireframe.swift; sourceTree = "<group>"; };
 		18DFC18825FB773B005632EE /* UIFontExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
@@ -183,6 +187,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		185F253626038310000E394B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				185F25392603834D000E394B /* PermissionsCell.swift */,
+				185F25372603833E000E394B /* PermissionsCell.xib */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		186AC91025FA1D7F009A40B6 /* Bases */ = {
 			isa = PBXGroup;
 			children = (
@@ -338,13 +351,13 @@
 		18D5BD7125F905500037CB70 /* Permissions */ = {
 			isa = PBXGroup;
 			children = (
+				185F253626038310000E394B /* Cell */,
 				18D5BD9B25F90EF30037CB70 /* PermissionsBuilder.swift */,
 				18D5BD9925F90EF30037CB70 /* PermissionsContract.swift */,
 				18D5BD9F25F90EF30037CB70 /* PermissionsEntity.swift */,
 				18D5BD9C25F90EF30037CB70 /* PermissionsInteractor.swift */,
 				18D5BD9A25F90EF30037CB70 /* PermissionsPresenter.swift */,
 				18D5BD9D25F90EF30037CB70 /* PermissionsView.swift */,
-				18D5BD9E25F90EF30037CB70 /* PermissionsView.xib */,
 				18D5BDA025F90EF30037CB70 /* PermissionsWireframe.swift */,
 			);
 			path = Permissions;
@@ -399,6 +412,7 @@
 			isa = PBXGroup;
 			children = (
 				18DFC1A225FD39A7005632EE /* DataModel.xcdatamodeld */,
+				185F253B2603A62C000E394B /* PermissionState.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -596,9 +610,9 @@
 			files = (
 				18DFC1CE25FE9D3D005632EE /* ComicCell.xib in Resources */,
 				18D5BD5925F902C70037CB70 /* LaunchScreen.storyboard in Resources */,
-				18D5BDA625F90EF40037CB70 /* PermissionsView.xib in Resources */,
 				18D5BD9625F90EE70037CB70 /* RegisterView.xib in Resources */,
 				18DFC19B25FCCBA3005632EE /* MarvelListCell.xib in Resources */,
+				185F25382603833E000E394B /* PermissionsCell.xib in Resources */,
 				18D5BD8625F90ECE0037CB70 /* MarvelListView.xib in Resources */,
 				18DFC1B325FE7E49005632EE /* MarvelDetailView.xib in Resources */,
 				18D5BD5625F902C70037CB70 /* Assets.xcassets in Resources */,
@@ -664,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18DFC1B125FE7E49005632EE /* MarvelDetailInteractor.swift in Sources */,
+				185F253A2603834D000E394B /* PermissionsCell.swift in Sources */,
 				18D5BD8125F90ECE0037CB70 /* MarvelListContract.swift in Sources */,
 				18D5BD9825F90EE70037CB70 /* RegisterWireframe.swift in Sources */,
 				18D5BDA725F90EF40037CB70 /* PermissionsEntity.swift in Sources */,
@@ -714,6 +729,7 @@
 				18E666EF260239DA00EEC3A3 /* ComicDAO.swift in Sources */,
 				18D5BDA825F90EF40037CB70 /* PermissionsWireframe.swift in Sources */,
 				18D5BD8225F90ECE0037CB70 /* MarvelListPresenter.swift in Sources */,
+				185F253C2603A62C000E394B /* PermissionState.swift in Sources */,
 				18DFC1B025FE7E49005632EE /* MarvelDetailBuilder.swift in Sources */,
 				18DFC19925FCCB92005632EE /* MarvelListCell.swift in Sources */,
 				18D5BD4F25F902B70037CB70 /* SceneDelegate.swift in Sources */,

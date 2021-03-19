@@ -11,13 +11,15 @@ import Foundation
 
 class PermissionsBuilder {
     static func build() -> PermissionsView {
-        let view = PermissionsView.init(nibName: String(describing: PermissionsView.self), bundle: nil)
+        let view = PermissionsView()
+        //let view = PermissionsView(nibName: String(describing: PermissionsView.self), bundle: nil)
         let presenter = PermissionsPresenter()
         let entity = PermissionsEntity()
         let wireframe = PermissionsWireframe()
         
         let userDefaultsProvider = UserDefaultsProvider()
-        let interactor = PermissionsInteractor(provider: userDefaultsProvider)
+        let coreDataProvider = CoreDataProvider()
+        let interactor = PermissionsInteractor(userDefaultsProvider: userDefaultsProvider, coreDataProvider: coreDataProvider)
         
         view.presenter = presenter
         view.presenter.view = view
