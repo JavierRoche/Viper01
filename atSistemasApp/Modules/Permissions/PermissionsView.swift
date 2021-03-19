@@ -110,6 +110,16 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
         tableView.reloadData()
     }
     
+    func permissionRequested(permission: Permission) {
+        guard let permissionState = PermissionState(rawValue: Int(permission.state)) else { return }
+        
+        /// Update model
+        permissionList.forEach {
+            $0.granted = $0.title == permission.title ? permission.granted : $0.granted
+            $0.state = $0.title == permission.title ? Int16(permissionState.rawValue) : $0.state
+        }
+    }
+    
     
     // MARK: Private Functions
     
@@ -164,7 +174,7 @@ extension PermissionsView {
         ])
         
         NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor, constant: 16.0),
+            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor),
@@ -176,19 +186,19 @@ extension PermissionsView {
 extension PermissionsView: PermissionsCellDelegate {
     func onChangeState(permission: Permission?) {
         /// Get rawValue enumerate from state
-        guard let permissionState = PermissionState(rawValue: Int(permission?.state ?? -1)) else {
-            return
+        guard let permission = permission else { return }
+        
+        /// Launch diferent user permissions
+        switch permission.title {
+        case PermissionType.camera.rawValue:
+            presenter.requestForCameraPermission(permission: permission)
+            
+        default:
+            break
         }
         
-        /// Update model
-        permissionList.forEach {
-            $0.state = $0.title == permission?.title ? Int16(permissionState.rawValue) : $0.state
-        }
-        
-        /// Update data only if diferent of .todo
-        if (permissionState != .todo) {
-            permissionStateSelected = PermissionState(rawValue: segmentControl.selectedSegmentIndex) ?? .todo
-            tableView.reloadData()
-        }
+        /// Update table only if diferent of .todo
+        permissionStateSelected = PermissionState(rawValue: segmentControl.selectedSegmentIndex) ?? .todo
+        tableView.reloadData()
     }
 }

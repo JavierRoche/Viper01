@@ -19,10 +19,11 @@ protocol PermissionsInteractorContract {
     func saveLastUserView()
     func simulatedDataCreation()
     func getPermissionList() -> [Permission]
+    func requestForCameraPermission(permission: Permission)
 }
 
 protocol PermissionsInteractorOutputContract: class {
-    
+    func cameraPermissionRequested(permission: Permission)
 }
 
 protocol PermissionsPresenterContract {
@@ -33,12 +34,14 @@ protocol PermissionsPresenterContract {
 
     func viewDidLoad()
     func viewWillAppear()
+    func requestForCameraPermission(permission: Permission)
 }
 
 protocol PermissionsViewContract: BaseViewController {
     var presenter: PermissionsPresenterContract! { get set }
     
     func permissionListDidChange(permissionList: [Permission])
+    func permissionRequested(permission: Permission)
 }
 
 protocol PermissionsWireframeContract: BaseWireframe {

@@ -12,7 +12,6 @@ import Foundation
 class PermissionsBuilder {
     static func build() -> PermissionsView {
         let view = PermissionsView()
-        //let view = PermissionsView(nibName: String(describing: PermissionsView.self), bundle: nil)
         let presenter = PermissionsPresenter()
         let entity = PermissionsEntity()
         let wireframe = PermissionsWireframe()

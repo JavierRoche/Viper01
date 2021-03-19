@@ -56,5 +56,5 @@ enum Constants {
     static let entityPermissionState: String = "state"
     static let entityPermissionTitle: String = "title"
     static let keyFavourite: String = "keyFavourite"
-    
+    static let camera: String = "camera"
 }

@@ -21,6 +21,14 @@ class PermissionsCell: UITableViewCell {
         return label
     }()
     
+    lazy var grantedLabel: UILabel = {
+        let label: UILabel = UILabel()
+        label.textColor = UIColor.black
+        label.numberOfLines = 1
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
     lazy var permissionSwitch: UISwitch = {
         let switchy: UISwitch = UISwitch()
         switchy.setOn(false, animated: false)
@@ -35,15 +43,10 @@ class PermissionsCell: UITableViewCell {
     
     // MARK: Lifecycle
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-    }
-    
     override func prepareForReuse() {
         permissionSwitch.setOn(false, animated: false)
         permissionLabel.text = nil
+        grantedLabel.text = nil
     }
     
     
@@ -51,18 +54,18 @@ class PermissionsCell: UITableViewCell {
     
     @objc private func switchStateChanged(sender: UISwitch!) {
         permission?.state = Int16(permissionSwitch.isOn ? PermissionState.done.rawValue : PermissionState.todo.rawValue)
-        delegate?.onChangeState(permission: self.permission)
+        delegate?.onChangeState(permission: permission)
     }
     
     
     // MARK: Public Functions
     
     func configureCell(permission: Permission) {
+        self.permission = permission
+        
         setViewsHierarchy()
         setConstraints()
-        
-        self.permission = permission
-        permissionLabel.text = permission.title
+        configureUI()
     }
     
     
@@ -70,6 +73,7 @@ class PermissionsCell: UITableViewCell {
         
     fileprivate func setViewsHierarchy() {
         self.addSubview(permissionLabel)
+        self.addSubview(grantedLabel)
         self.addSubview(permissionSwitch)
     }
     
@@ -77,8 +81,12 @@ class PermissionsCell: UITableViewCell {
         NSLayoutConstraint.activate([
             permissionLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
             permissionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 16),
-            permissionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
-            permissionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 16)
+            permissionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16)
+        ])
+        
+        NSLayoutConstraint.activate([
+            grantedLabel.centerYAnchor.constraint(equalTo: permissionLabel.centerYAnchor),
+            grantedLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0)
         ])
         
         NSLayoutConstraint.activate([
@@ -86,8 +94,18 @@ class PermissionsCell: UITableViewCell {
             permissionSwitch.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16.0)
         ])
     }
+    
+    fileprivate func configureUI() {
+        permissionLabel.text = permission?.title
+        if permission?.state == Int16(PermissionState.done.rawValue) {
+            grantedLabel.text = PermissionInfo.authorized.rawValue
+            grantedLabel.isHidden = false
+            permissionSwitch.isHidden = true
+            
+        } else {
+            grantedLabel.text = PermissionInfo.notAuthorized.rawValue
+            grantedLabel.isHidden = true
+            permissionSwitch.isHidden = false
+        }
+    }
 }
-
-
-
-

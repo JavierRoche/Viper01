@@ -26,13 +26,19 @@ class PermissionsPresenter: PermissionsPresenterContract {
         interactor.saveLastUserView()
         view.permissionListDidChange(permissionList: interactor.getPermissionList())
     }
+    
+    func requestForCameraPermission(permission: Permission) {
+        interactor.requestForCameraPermission(permission: permission)
+    }
 }
 
 
 // MARK: - PermissionsInteractorOutputContract
 
 extension PermissionsPresenter: PermissionsInteractorOutputContract {
-    
+    func cameraPermissionRequested(permission: Permission) {
+        view.permissionRequested(permission: permission)
+    }
 }
 
 

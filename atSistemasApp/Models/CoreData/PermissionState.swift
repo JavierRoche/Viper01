@@ -12,3 +12,12 @@ enum PermissionState: Int {
     case todo = 0
     case done
 }
+
+enum PermissionType: String {
+    case camera = "camera"
+}
+
+enum PermissionInfo: String {
+    case authorized = "Authorized"
+    case notAuthorized = "Not authorized"
+}
