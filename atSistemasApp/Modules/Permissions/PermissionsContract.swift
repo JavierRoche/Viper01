@@ -20,10 +20,12 @@ protocol PermissionsInteractorContract {
     func simulatedDataCreation()
     func getPermissionList() -> [Permission]
     func requestForCameraPermission(permission: Permission)
+    func requestForLocationPermission(permission: Permission)
 }
 
 protocol PermissionsInteractorOutputContract: class {
     func cameraPermissionRequested(permission: Permission)
+    func locationPermissionRequested(permission: Permission)
 }
 
 protocol PermissionsPresenterContract {
@@ -35,6 +37,7 @@ protocol PermissionsPresenterContract {
     func viewDidLoad()
     func viewWillAppear()
     func requestForCameraPermission(permission: Permission)
+    func requestForLocationPermission(permission: Permission)
 }
 
 protocol PermissionsViewContract: BaseViewController {

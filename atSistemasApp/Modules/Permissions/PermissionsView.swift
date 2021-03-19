@@ -193,6 +193,9 @@ extension PermissionsView: PermissionsCellDelegate {
         case PermissionType.camera.rawValue:
             presenter.requestForCameraPermission(permission: permission)
             
+        case PermissionType.location.rawValue:
+        presenter.requestForLocationPermission(permission: permission)
+        
         default:
             break
         }

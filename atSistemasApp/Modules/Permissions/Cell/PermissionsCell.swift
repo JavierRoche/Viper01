@@ -98,12 +98,13 @@ class PermissionsCell: UITableViewCell {
     fileprivate func configureUI() {
         permissionLabel.text = permission?.title
         if permission?.state == Int16(PermissionState.done.rawValue) {
-            grantedLabel.text = PermissionInfo.authorized.rawValue
             grantedLabel.isHidden = false
             permissionSwitch.isHidden = true
             
+            guard let granted = permission?.granted else { return }
+            grantedLabel.text = granted ? PermissionInfo.authorized.rawValue : PermissionInfo.notAuthorized.rawValue
+            
         } else {
-            grantedLabel.text = PermissionInfo.notAuthorized.rawValue
             grantedLabel.isHidden = true
             permissionSwitch.isHidden = false
         }

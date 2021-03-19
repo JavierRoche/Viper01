@@ -30,6 +30,10 @@ class PermissionsPresenter: PermissionsPresenterContract {
     func requestForCameraPermission(permission: Permission) {
         interactor.requestForCameraPermission(permission: permission)
     }
+    
+    func requestForLocationPermission(permission: Permission) {
+        interactor.requestForLocationPermission(permission: permission)
+    }
 }
 
 
@@ -37,6 +41,10 @@ class PermissionsPresenter: PermissionsPresenterContract {
 
 extension PermissionsPresenter: PermissionsInteractorOutputContract {
     func cameraPermissionRequested(permission: Permission) {
+        view.permissionRequested(permission: permission)
+    }
+    
+    func locationPermissionRequested(permission: Permission) {
         view.permissionRequested(permission: permission)
     }
 }

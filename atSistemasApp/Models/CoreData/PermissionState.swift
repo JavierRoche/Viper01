@@ -15,6 +15,7 @@ enum PermissionState: Int {
 
 enum PermissionType: String {
     case camera = "camera"
+    case location = "location"
 }
 
 enum PermissionInfo: String {

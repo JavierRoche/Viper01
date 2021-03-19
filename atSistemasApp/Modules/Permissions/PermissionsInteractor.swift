@@ -9,12 +9,22 @@
 
 import Foundation
 import AVFoundation
+import CoreLocation
 
-class PermissionsInteractor: PermissionsInteractorContract {
+class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     weak var output: PermissionsInteractorOutputContract?
 
     var userDefaultsProvider: UserDefaultsProvider
     var coreDataProvider: CoreDataProvider
+    
+    lazy var locationManager: CLLocationManager = {
+        let manager = CLLocationManager()
+        manager.delegate = self
+        return manager
+    }()
+    /// User loc
+    var currentLocation: CLLocation?
+    var permission: Permission?
     
     
     // MARK: LifeCycle
@@ -48,7 +58,7 @@ class PermissionsInteractor: PermissionsInteractorContract {
     }
     
     func requestForCameraPermission(permission: Permission) {
-        /// Evaluate video camera suthorization state
+        /// Evaluate video camera authorization state
         DispatchQueue.main.async { [weak self] in
             switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
             case .authorized:
@@ -74,5 +84,44 @@ class PermissionsInteractor: PermissionsInteractorContract {
                 self?.output?.cameraPermissionRequested(permission: permission)
             }
         }
+    }
+    
+    func requestForLocationPermission(permission: Permission) {
+        self.permission = permission
+        
+        /// Evaluate geo location authorization state
+        DispatchQueue.main.async { [weak self] in
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways, .authorizedWhenInUse:
+                permission.granted = true
+                self?.output?.locationPermissionRequested(permission: permission)
+            
+            case .notDetermined:
+                /// Request permissions and activate search
+                self?.locationManager.requestAlwaysAuthorization()
+                self?.locationManager.startUpdatingLocation()
+                
+            default:
+                permission.granted = false
+                self?.output?.locationPermissionRequested(permission: permission)
+            }
+        }
+    }
+}
+
+
+// MARK: CLLocationManager Delegate
+
+extension PermissionsInteractor: CLLocationManagerDelegate {
+    /// User device execute this method on changing of location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        permission?.granted = true
+        output?.locationPermissionRequested(permission: permission!)
+        currentLocation = locations.first
+        print("[]\(String(describing: currentLocation))")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("[]\(error)")
     }
 }

@@ -38,7 +38,7 @@ class CoreDataProvider: CoreDataProviderContract {
         permission?.setValue("camera", forKey: Constants.entityPermissionTitle)
         permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
-        permission?.setValue("localization", forKey: Constants.entityPermissionTitle)
+        permission?.setValue("location", forKey: Constants.entityPermissionTitle)
         permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
         permission?.setValue("otro", forKey: Constants.entityPermissionTitle)
