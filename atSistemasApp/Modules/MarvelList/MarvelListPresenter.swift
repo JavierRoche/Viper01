@@ -38,16 +38,16 @@ class MarvelListPresenter: MarvelListPresenterContract {
         }
     }
     
-    func isFavouriteChar(id: Int) -> Bool {
-        return interactor.isFavouriteChar(id: id)
+    func saveFavouriteChar(name: String) {
+        interactor.saveFavouriteChar(name: name)
     }
     
-    func saveFavouriteChar(id: Int) {
-        interactor.saveFavouriteChar(id: id)
+    func isFavouriteChar(name: String) -> Bool {
+        return interactor.isFavouriteChar(name: name)
     }
     
-    func deleteFavouriteChar(id: Int) {
-        interactor.deleteFavouriteChar(id: id)
+    func deleteFavouriteChar(name: String) {
+        interactor.deleteFavouriteChar(name: name)
     }
     
     func charCellTapped(char: Character) {

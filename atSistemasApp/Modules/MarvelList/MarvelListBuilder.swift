@@ -18,10 +18,8 @@ class MarvelListBuilder {
         
         let userDefaultsProvider = UserDefaultsProvider()
         let remoteDataProvider = RemoteDataProvider()
-        let coreDataProvider = CoreDataProvider()
         let interactor = MarvelListInteractor(userDefaultsProvider: userDefaultsProvider,
-                                              remoteDataProvider: remoteDataProvider,
-                                              coreDataProvider: coreDataProvider)
+                                              remoteDataProvider: remoteDataProvider)
         
         view.presenter = presenter
         view.presenter.view = view

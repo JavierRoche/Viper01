@@ -74,7 +74,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
     fileprivate func updateWithFavourites() {
         self.charList = charList.map({ character in
             var mutabledChar = character
-            mutabledChar.favourite = presenter.isFavouriteChar(id: character.id ?? 0)
+            mutabledChar.favourite = presenter.isFavouriteChar(name: character.name ?? String())
             return mutabledChar
         })
     }
@@ -118,11 +118,11 @@ extension MarvelListView: UITableViewDataSource {
 
 extension MarvelListView: MarvelListCellDelegate {
     func favouriteButtonTapped(char: Character) {
-        guard let id = char.id else { return }
+        guard let name = char.name else { return }
         
         /// Update DB
-        self.presenter.isFavouriteChar(id: id) ?
-            self.presenter.deleteFavouriteChar(id: id) : self.presenter.saveFavouriteChar(id: id)
+        self.presenter.isFavouriteChar(name: name) ?
+            self.presenter.deleteFavouriteChar(name: name) : self.presenter.saveFavouriteChar(name: name)
         
         /// Update model
         updateWithFavourites()

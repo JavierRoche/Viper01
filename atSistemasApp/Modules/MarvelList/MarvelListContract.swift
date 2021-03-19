@@ -19,9 +19,9 @@ protocol MarvelListInteractorContract {
     
     func saveLastUserView()
     func getMarvelList() -> Promise<[Character]>
-    func isFavouriteChar(id: Int) -> Bool
-    func saveFavouriteChar(id: Int)
-    func deleteFavouriteChar(id: Int)
+    func saveFavouriteChar(name: String)
+    func isFavouriteChar(name: String) -> Bool
+    func deleteFavouriteChar(name: String)
 }
 
 protocol MarvelListInteractorOutputContract: class {
@@ -36,9 +36,9 @@ protocol MarvelListPresenterContract {
 
     func viewDidLoad()
     func viewWillAppear()
-    func isFavouriteChar(id: Int) -> Bool
-    func saveFavouriteChar(id: Int)
-    func deleteFavouriteChar(id: Int)
+    func saveFavouriteChar(name: String)
+    func isFavouriteChar(name: String) -> Bool
+    func deleteFavouriteChar(name: String)
     func charCellTapped(char: Character)
 }
 

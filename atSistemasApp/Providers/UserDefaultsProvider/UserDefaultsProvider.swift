@@ -10,6 +10,7 @@ import Foundation
 
 class UserDefaultsProvider: UserDefaultsProviderContract {
     private let keyUserView = Constants.keyUserView
+    private let keyFavourite = Constants.keyFavourite
     private let keyFirstExecution = Constants.keyFirstExecution
 
     
@@ -45,4 +46,24 @@ class UserDefaultsProvider: UserDefaultsProviderContract {
     }
     
     
+    // MARK: Favourites
+    
+    func setFavourite(name: String) {
+        UserDefaults.standard.set(true, forKey: name)
+    }
+    
+    func isFavourite(name: String) -> Bool {
+        if UserDefaults.standard.dictionaryRepresentation().keys.contains(name) {
+            return UserDefaults.standard.bool(forKey: name)
+            
+        } else {
+            return false
+        }
+    }
+    
+    func deleteFavourite(name: String) {
+        if UserDefaults.standard.dictionaryRepresentation().keys.contains(name) {
+            UserDefaults.standard.removeObject(forKey: name)
+        }
+    }
 }

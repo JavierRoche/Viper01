@@ -15,17 +15,14 @@ class MarvelListInteractor: MarvelListInteractorContract {
 
     var userDefaultsProvider: UserDefaultsProvider
     var remoteDataProvider: RemoteDataProvider
-    var coreDataProvider: CoreDataProvider
     
     
     // MARK: LifeCycle
     
     init (userDefaultsProvider: UserDefaultsProvider,
-          remoteDataProvider: RemoteDataProvider,
-          coreDataProvider: CoreDataProvider) {
+          remoteDataProvider: RemoteDataProvider) {
         self.userDefaultsProvider = userDefaultsProvider
         self.remoteDataProvider = remoteDataProvider
-        self.coreDataProvider = coreDataProvider
     }
     
     
@@ -50,15 +47,15 @@ class MarvelListInteractor: MarvelListInteractorContract {
         }
     }
     
-    func isFavouriteChar(id: Int) -> Bool {
-        return coreDataProvider.isFavourite(id: Int32(id))
+    func saveFavouriteChar(name: String) {
+        userDefaultsProvider.setFavourite(name: name)
     }
     
-    func saveFavouriteChar(id: Int) {
-        coreDataProvider.saveFavourite(id: id)
+    func isFavouriteChar(name: String) -> Bool {
+        return userDefaultsProvider.isFavourite(name: name)
     }
     
-    func deleteFavouriteChar(id: Int) {
-        coreDataProvider.deleteFavourite(id: id)
+    func deleteFavouriteChar(name: String) {
+        userDefaultsProvider.deleteFavourite(name: name)
     }
 }
