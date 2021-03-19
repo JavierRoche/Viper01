@@ -8,7 +8,7 @@
 
 import Foundation
 
-/// Implementación de la request que obtiene los comics de un personaje
+/// Request implementation to get char's comics
 struct CharComicsRequest: APIRequest {
     typealias Response = CharComicsResponse
     

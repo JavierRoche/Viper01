@@ -30,6 +30,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: UITableView.Style.plain)
         table.register(PermissionsCell.self, forCellReuseIdentifier: String(describing: PermissionsCell.self))
+        table.estimatedRowHeight = 40.0
         table.dataSource = self
         table.delegate = self
         table.separatorColor = UIColor.clear
@@ -39,7 +40,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     
 	var presenter: PermissionsPresenterContract!
 
-    /// Permission to show
+    /// Permission to show / work
     private var currentPermissionList: [Permission] = []
     private var permissionList: [Permission] = []
     /// Computable var set what permissions have to be showed
@@ -48,15 +49,6 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
             currentPermissionList = permissionList.filter {
                 $0.state == permissionStateSelected.rawValue
             }
-            /*switch permissionStateSelected {
-            case .todo:
-                currentPermissionList = permissionList
-                
-            case .done:
-                currentPermissionList = permissionList.filter {
-                    $0.state == permissionStateSelected.rawValue
-                }
-            }*/
         }
     }
     
@@ -79,7 +71,6 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureUI()
         presenter.viewDidLoad()
     }
 
@@ -90,6 +81,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer. Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
         segmentControl.frame = CGRect(x: 64, y: 264, width: (view.bounds.width - 128), height: 31)
     }
     
@@ -123,8 +115,28 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     
     // MARK: Private Functions
     
-    fileprivate func configureUI() {
-        //self.navigationController?.navigationBar.isHidden = true
+    fileprivate func setViewsHierarchy() {
+        view = UIView()
+        
+        view.addSubview(backgroundView)
+        view.addSubview(segmentControl)
+        view.addSubview(tableView)
+    }
+    
+    fileprivate func setConstraints() {
+        NSLayoutConstraint.activate([
+            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.leadingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor),
+        ])
     }
 }
 
@@ -156,32 +168,8 @@ extension PermissionsView: UITableViewDataSource {
     }
 }
 
-extension PermissionsView {
-    func setViewsHierarchy() {
-        view = UIView()
-        
-        view.addSubview(backgroundView)
-        view.addSubview(segmentControl)
-        view.addSubview(tableView)
-    }
-    
-    func setConstraints() {
-        NSLayoutConstraint.activate([
-            backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
-        
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            tableView.leadingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor),
-        ])
-    }
-}
 
+// MARK: PermissionsCell Delegate
 
 extension PermissionsView: PermissionsCellDelegate {
     func onChangeState(permission: Permission?) {
@@ -190,11 +178,14 @@ extension PermissionsView: PermissionsCellDelegate {
         
         /// Launch diferent user permissions
         switch permission.title {
-        case PermissionType.camera.rawValue:
+        case PermissionType.camera.localizedString:
             presenter.requestForCameraPermission(permission: permission)
             
-        case PermissionType.location.rawValue:
-        presenter.requestForLocationPermission(permission: permission)
+        case PermissionType.location.localizedString:
+            presenter.requestForLocationPermission(permission: permission)
+        
+        case PermissionType.photosLibrary.localizedString:
+            presenter.requestForPhotosLibraryPermission(permission: permission)
         
         default:
             break

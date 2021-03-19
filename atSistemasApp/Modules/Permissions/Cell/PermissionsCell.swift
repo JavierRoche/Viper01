@@ -16,7 +16,6 @@ class PermissionsCell: UITableViewCell {
     lazy var permissionLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = UIColor.black
-        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -24,7 +23,6 @@ class PermissionsCell: UITableViewCell {
     lazy var grantedLabel: UILabel = {
         let label: UILabel = UILabel()
         label.textColor = UIColor.black
-        label.numberOfLines = 1
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -102,7 +100,7 @@ class PermissionsCell: UITableViewCell {
             permissionSwitch.isHidden = true
             
             guard let granted = permission?.granted else { return }
-            grantedLabel.text = granted ? PermissionInfo.authorized.rawValue : PermissionInfo.notAuthorized.rawValue
+            grantedLabel.text = granted ? PermissionInfo.authorized.localizedString : PermissionInfo.notAuthorized.localizedString
             
         } else {
             grantedLabel.isHidden = true

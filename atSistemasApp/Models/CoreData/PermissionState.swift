@@ -14,11 +14,35 @@ enum PermissionState: Int {
 }
 
 enum PermissionType: String {
-    case camera = "camera"
-    case location = "location"
+    case camera
+    case location
+    case photosLibrary
+    
+    var localizedString: String {
+        switch self {
+        case .camera:
+            return Constants.camera
+            
+        case .location:
+            return Constants.location
+            
+        case .photosLibrary:
+            return Constants.photosLibrary
+        }
+    }
 }
 
 enum PermissionInfo: String {
-    case authorized = "Authorized"
-    case notAuthorized = "Not authorized"
+    case authorized
+    case notAuthorized
+    
+    var localizedString: String {
+        switch self {
+        case .authorized:
+            return Constants.authorized
+            
+        case .notAuthorized:
+            return Constants.notAuthorized
+        }
+    }
 }

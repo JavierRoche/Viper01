@@ -34,6 +34,10 @@ class PermissionsPresenter: PermissionsPresenterContract {
     func requestForLocationPermission(permission: Permission) {
         interactor.requestForLocationPermission(permission: permission)
     }
+    
+    func requestForPhotosLibraryPermission(permission: Permission) {
+        interactor.requestForPhotosLibraryPermission(permission: permission)
+    }
 }
 
 

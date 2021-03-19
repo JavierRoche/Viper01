@@ -10,6 +10,7 @@
 import Foundation
 import AVFoundation
 import CoreLocation
+import PhotosUI
 
 class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     weak var output: PermissionsInteractorOutputContract?
@@ -105,6 +106,23 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
                 permission.granted = false
                 self?.output?.locationPermissionRequested(permission: permission)
             }
+        }
+    }
+    
+    func requestForPhotosLibraryPermission(permission: Permission) {
+        /// Evaluate photos library authorization state
+        DispatchQueue.main.async { [weak self] in
+            PHPhotoLibrary.requestAuthorization({ status in
+                switch status {
+                    case .authorized:
+                        permission.granted = true
+                        self?.output?.locationPermissionRequested(permission: permission)
+                    
+                    default:
+                        permission.granted = false
+                        self?.output?.locationPermissionRequested(permission: permission)
+                }
+            })
         }
     }
 }

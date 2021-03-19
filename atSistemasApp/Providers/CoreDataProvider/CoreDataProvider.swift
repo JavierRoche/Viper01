@@ -35,16 +35,13 @@ class CoreDataProvider: CoreDataProviderContract {
         /// Simulated data for a cool data representation
         var permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
-        permission?.setValue("camera", forKey: Constants.entityPermissionTitle)
+        permission?.setValue(Constants.camera, forKey: Constants.entityPermissionTitle)
         permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
-        permission?.setValue("location", forKey: Constants.entityPermissionTitle)
+        permission?.setValue(Constants.location, forKey: Constants.entityPermissionTitle)
         permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
-        permission?.setValue("otro", forKey: Constants.entityPermissionTitle)
-        permission = createPermission()
-        permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
-        permission?.setValue("otroMas", forKey: Constants.entityPermissionTitle)
+        permission?.setValue(Constants.photosLibrary, forKey: Constants.entityPermissionTitle)
         
         persistData()
     }

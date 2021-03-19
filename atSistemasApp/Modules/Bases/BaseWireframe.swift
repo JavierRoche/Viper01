@@ -25,8 +25,7 @@ enum AlertType {
     var title: String {
         switch self {
         case .genericError:
-            // GESTIONAR
-            return "_generic_error_title"//.localizedString()
+            return "_generic_error_title"
         }
     }
 }
@@ -184,8 +183,6 @@ class BaseWireframe {
             wrappedActions.forEach({
                 basicErrorAlert.addAction($0)
             })
-        } else {
-            //basicErrorAlert.addAction(UIAlertAction.init(title: "_generic_accept_title".localizedString(), style: .default, handler: nil))
         }
         self.presentView(from: view, useCase: basicErrorAlert, withTransition: .modal, completion: completion)
     }
