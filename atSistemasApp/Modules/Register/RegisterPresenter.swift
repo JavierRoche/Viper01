@@ -7,7 +7,7 @@
 //
 //
 
-import Foundation
+import UIKit
 
 class RegisterPresenter: RegisterPresenterContract {
     weak var view: RegisterViewContract!
@@ -18,25 +18,24 @@ class RegisterPresenter: RegisterPresenterContract {
     
     // MARK: Public Functions
     
-    func viewDidLoad() {
-
-    }
+    func viewDidLoad() {}
 
     func viewWillAppear() {
         interactor.saveLastUserView()
+    }
+    
+    func badDataIntput(message: String) {
+        let action = UIAlertAction(title: Constants.accept, style: .default, handler: nil)
+        wireframe?.showErrorModalAlert(view, content: message, customActions: [action], completion: nil)
     }
 }
 
 
 // MARK: - RegisterInteractorOutputContract
 
-extension RegisterPresenter: RegisterInteractorOutputContract {
-    
-}
+extension RegisterPresenter: RegisterInteractorOutputContract {}
 
 
 // MARK: - RegisterWireframeOutputContract
 
-extension RegisterPresenter: RegisterWireframeOutputContract {
-    
-}
+extension RegisterPresenter: RegisterWireframeOutputContract {}

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		180FB80F26062066001BF52D /* RegisterDataInputControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 180FB80E26062066001BF52D /* RegisterDataInputControl.swift */; };
 		185F25382603833E000E394B /* PermissionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 185F25372603833E000E394B /* PermissionsCell.xib */; };
 		185F253A2603834D000E394B /* PermissionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F25392603834D000E394B /* PermissionsCell.swift */; };
 		185F253C2603A62C000E394B /* PermissionState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 185F253B2603A62C000E394B /* PermissionState.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		180FB80E26062066001BF52D /* RegisterDataInputControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDataInputControl.swift; sourceTree = "<group>"; };
 		185F25372603833E000E394B /* PermissionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PermissionsCell.xib; sourceTree = "<group>"; };
 		185F25392603834D000E394B /* PermissionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsCell.swift; sourceTree = "<group>"; };
 		185F253B2603A62C000E394B /* PermissionState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionState.swift; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 			children = (
 				18D5BD8B25F90EE70037CB70 /* RegisterBuilder.swift */,
 				18D5BD8925F90EE70037CB70 /* RegisterContract.swift */,
+				180FB80E26062066001BF52D /* RegisterDataInputControl.swift */,
 				18D5BD8F25F90EE70037CB70 /* RegisterEntity.swift */,
 				18D5BD8C25F90EE70037CB70 /* RegisterInteractor.swift */,
 				18D5BD8A25F90EE70037CB70 /* RegisterPresenter.swift */,
@@ -706,6 +709,7 @@
 				18D5BDA125F90EF40037CB70 /* PermissionsContract.swift in Sources */,
 				18D5BD8725F90ECE0037CB70 /* MarvelListEntity.swift in Sources */,
 				18D5BDA225F90EF40037CB70 /* PermissionsPresenter.swift in Sources */,
+				180FB80F26062066001BF52D /* RegisterDataInputControl.swift in Sources */,
 				18DFC1B425FE7E49005632EE /* MarvelDetailEntity.swift in Sources */,
 				18DFC1D225FFD754005632EE /* TabBarProviderContract.swift in Sources */,
 				186AC92725FA5D47009A40B6 /* RemoteDataProvider.swift in Sources */,

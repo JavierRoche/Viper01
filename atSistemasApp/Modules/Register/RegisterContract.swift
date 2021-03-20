@@ -31,6 +31,7 @@ protocol RegisterPresenterContract {
 
     func viewDidLoad()
     func viewWillAppear()
+    func badDataIntput(message: String)
 }
 
 protocol RegisterViewContract: BaseViewController {

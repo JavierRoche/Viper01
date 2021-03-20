@@ -18,7 +18,7 @@ enum Constants {
     static let preconditionFailure: String = "This method needs to be overriden by concrete subclass."
     static let urlImageSize: String = "standard_large"
     static let listDashIS: String = "list.dash"
-    static let lockFillIS: String = "list.dash"
+    static let lockFillIS: String = "lock.fill"
     static let rosetteIS: String = "rosette"
     static let iconImageWarning: String = "exclamationmark.triangle"
     static let appTitle: String = "Marvel Characters"
@@ -61,4 +61,8 @@ enum Constants {
     static let photosLibrary: String = "Photos Library"
     static let authorized: String = "Authorized"
     static let notAuthorized: String = "Not authorized"
+    
+    
+    
+    static let missingData: String = "Missing data"
 }

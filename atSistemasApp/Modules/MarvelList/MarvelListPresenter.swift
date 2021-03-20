@@ -58,13 +58,9 @@ class MarvelListPresenter: MarvelListPresenterContract {
 
 // MARK: - MarvelListInteractorOutputContract
 
-extension MarvelListPresenter: MarvelListInteractorOutputContract {
-    
-}
+extension MarvelListPresenter: MarvelListInteractorOutputContract {}
 
 
 // MARK: - MarvelListWireframeOutputContract
 
-extension MarvelListPresenter: MarvelListWireframeOutputContract {
-    
-}
+extension MarvelListPresenter: MarvelListWireframeOutputContract {}

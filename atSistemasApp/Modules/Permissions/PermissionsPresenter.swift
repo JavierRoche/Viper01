@@ -56,6 +56,4 @@ extension PermissionsPresenter: PermissionsInteractorOutputContract {
 
 // MARK: - PermissionsWireframeOutputContract
 
-extension PermissionsPresenter: PermissionsWireframeOutputContract {
-    
-}
+extension PermissionsPresenter: PermissionsWireframeOutputContract {}
