@@ -17,6 +17,8 @@ protocol RegisterInteractorContract  {
     var output: RegisterInteractorOutputContract? {get set}
     
     func saveLastUserView()
+    func saveCredentials(email: String, password: String) -> String?
+    func loadCredentials(email: String, password: String) -> String?
 }
 
 protocol RegisterInteractorOutputContract: class {
@@ -32,6 +34,8 @@ protocol RegisterPresenterContract {
     func viewDidLoad()
     func viewWillAppear()
     func badDataIntput(message: String)
+    func saveCredentials(email: String, password: String) -> Bool
+    func loadCredentials(email: String, password: String) -> String
 }
 
 protocol RegisterViewContract: BaseViewController {

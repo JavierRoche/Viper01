@@ -10,6 +10,7 @@
 import UIKit
 
 class RegisterView: BaseViewController, RegisterViewContract {
+    @IBOutlet weak var userLoggedLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var emailText: UITextField!
     @IBOutlet weak var passwordLabel: UILabel!
@@ -100,30 +101,31 @@ class RegisterView: BaseViewController, RegisterViewContract {
     
     fileprivate func signUp() {
         /// Empty fields check
-        guard let email = emailText.text?.lowercased(), let password = passwordText.text, let repeatPass = repeatText.text else {
+        guard let email = emailText.text?.lowercased(), let password = passwordText.text, let repeatPass = repeatText.text,
+            !email.isEmpty, !password.isEmpty, !repeatPass.isEmpty else {
             presenter.badDataIntput(message: Constants.missingData)
             return
         }
         
-        if email.isEmpty || password.isEmpty || repeatPass.isEmpty {
-            presenter.badDataIntput(message: Constants.missingData)
+        if password != repeatPass {
+            presenter.badDataIntput(message: Constants.dismatchPassword)
             return
         }
         
         /// Inicializamos un User con los datos introducidos por el usuario y registramos
-        //Guardar credenciales y mensaje
+        if presenter.saveCredentials(email: email, password: password) {
+            userLoggedLabel.text = presenter.loadCredentials(email: email, password: password)
+        }
     }
     
     fileprivate func signIn() {
         /// Empty fields check
-        guard let email = emailText.text?.lowercased(), let password = passwordText.text else {
+        guard let email = emailText.text?.lowercased(), let password = passwordText.text,
+            !email.isEmpty, !password.isEmpty else {
             presenter.badDataIntput(message: Constants.missingData)
             return
         }
         
-        if email.isEmpty || password.isEmpty {
-            presenter.badDataIntput(message: Constants.missingData)
-            return
-        }
+        userLoggedLabel.text = presenter.loadCredentials(email: email, password: password)
     }
 }

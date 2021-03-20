@@ -15,16 +15,14 @@ enum Constants {
     static let contentTypeValue: [String] = ["application/json"]
     static let contentType: String = "Content-Type"
     static let refreshMessage: String = "Pull to refresh"
-    static let preconditionFailure: String = "This method needs to be overriden by concrete subclass."
     static let urlImageSize: String = "standard_large"
     static let listDashIS: String = "list.dash"
     static let lockFillIS: String = "lock.fill"
     static let rosetteIS: String = "rosette"
     static let iconImageWarning: String = "exclamationmark.triangle"
-    static let appTitle: String = "Marvel Characters"
     static let error: String = "Error"
+    static let information: String = "Information"
     static let accept: String = "Accept"
-    static let NSCoderError: String = "init(coder:) has not been implemented"
     static let https: String = "https"
     static let apiURL: String = "https://gateway.marvel.com"
     static let path: String = "/v1/public/characters"
@@ -35,10 +33,6 @@ enum Constants {
     static let hash: String = "hash"
     static let hashValue: String = "51fa5500ec6da8064d901fdef50dfc4b"
     static let coreDataStorage: String = "DataModel"
-    static let entityFavouriteChars: String = "FavouriteChars"
-    static let entityFavouriteCharsId: String = "id"
-    static let heart: String = "heart"
-    static let heartFill: String = "heart.fill"
     static let marvel: String = "Marvel"
     static let register: String = "Register"
     static let permissions: String = "Permissions"
@@ -48,8 +42,6 @@ enum Constants {
     static let keyResults: String = "results"
     static let apiBadResponse: String = "network_error_parsing_description"
     static let apiBadData: String = "network_error_bad_data"
-    
-    /// Permissions Tab
     static let todo: String = "TODO"
     static let done: String = "DONE"
     static let entityPermission: String = "Permission"
@@ -61,8 +53,11 @@ enum Constants {
     static let photosLibrary: String = "Photos Library"
     static let authorized: String = "Authorized"
     static let notAuthorized: String = "Not authorized"
-    
-    
-    
     static let missingData: String = "Missing data"
+    static let dismatchPassword: String = "Dismatch passwords"
+    static let notFoundCredentials: String = "Credentials not found for: "
+    static let couldntSaveCredentials: String = "Couldn't save credentials for: "
+    static let notLogged: String = "Not logged"
+    static let loggedAs: String = "Logged as "
+    static let userLogged: String = "User logged"
 }

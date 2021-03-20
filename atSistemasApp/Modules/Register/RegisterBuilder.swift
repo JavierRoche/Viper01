@@ -17,7 +17,8 @@ class RegisterBuilder {
         let wireframe = RegisterWireframe()
         
         let userDefaultsProvider = UserDefaultsProvider()
-        let interactor = RegisterInteractor(provider: userDefaultsProvider)
+        let keyChainProvider = KeyChainProvider()
+        let interactor = RegisterInteractor(userDefaultsProvider: userDefaultsProvider, keyChainProvider: keyChainProvider)
         
         view.presenter = presenter
         view.presenter.view = view

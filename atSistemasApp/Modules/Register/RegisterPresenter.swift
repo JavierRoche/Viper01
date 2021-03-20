@@ -15,6 +15,8 @@ class RegisterPresenter: RegisterPresenterContract {
     var entity: RegisterEntityContract?
     var wireframe: RegisterWireframeContract?
 
+    let action = UIAlertAction(title: Constants.accept, style: .default, handler: nil)
+    
     
     // MARK: Public Functions
     
@@ -25,8 +27,24 @@ class RegisterPresenter: RegisterPresenterContract {
     }
     
     func badDataIntput(message: String) {
-        let action = UIAlertAction(title: Constants.accept, style: .default, handler: nil)
         wireframe?.showErrorModalAlert(view, content: message, customActions: [action], completion: nil)
+    }
+    
+    func saveCredentials(email: String, password: String) -> Bool {
+        guard let _ = interactor.saveCredentials(email: email, password: password) else {
+            wireframe?.showErrorModalAlert(view, content: "\(Constants.couldntSaveCredentials)\(email)", customActions: [action], completion: nil)
+            return false
+        }
+        return true
+    }
+    
+    func loadCredentials(email: String, password: String) -> String {
+        guard let emailRetrieve = interactor.loadCredentials(email: email, password: password) else {
+            wireframe?.showErrorModalAlert(view, content: "\(Constants.notFoundCredentials)\(email)", customActions: [action], completion: nil)
+            return Constants.notLogged
+        }
+        wireframe?.showCustomModalAlert(view, title: AlertType.information.title, content: Constants.userLogged, customActions: [action], completion: nil)
+        return "\(Constants.loggedAs)\(emailRetrieve)"
     }
 }
 

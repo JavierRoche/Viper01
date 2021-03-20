@@ -18,6 +18,7 @@
                 <outlet property="repeatText" destination="nK2-oS-GKW" id="58K-Em-5ok"/>
                 <outlet property="signInButton" destination="J0P-yA-AJf" id="15n-Th-vQL"/>
                 <outlet property="signUpButton" destination="FPJ-h5-lTS" id="rNW-Ac-SI6"/>
+                <outlet property="userLoggedLabel" destination="Qs3-7O-B0z" id="3Tn-t5-140"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -26,6 +27,12 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not logged" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qs3-7O-B0z">
+                    <rect key="frame" x="64" y="114" width="85.5" height="21"/>
+                    <fontDescription key="fontDescription" type="italicSystem" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GUl-BP-a3l">
                     <rect key="frame" x="64" y="306" width="286" height="21.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -107,10 +114,12 @@
                 <constraint firstItem="woA-cv-WRM" firstAttribute="top" secondItem="jHc-yh-HjQ" secondAttribute="bottom" constant="32" id="Ncg-Iu-mLj"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="adq-Sk-l8U" secondAttribute="trailing" constant="64" id="RVr-EG-Jj8"/>
                 <constraint firstItem="adq-Sk-l8U" firstAttribute="top" secondItem="GUl-BP-a3l" secondAttribute="bottom" constant="8" id="UJl-cI-NH8"/>
+                <constraint firstItem="Qs3-7O-B0z" firstAttribute="top" secondItem="tAt-aP-EcC" secondAttribute="top" constant="70" id="V8L-AV-gbT"/>
                 <constraint firstItem="J0P-yA-AJf" firstAttribute="top" secondItem="jHc-yh-HjQ" secondAttribute="bottom" constant="32" id="VWo-jb-vRa"/>
                 <constraint firstItem="jHc-yh-HjQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="beJ-li-vt7"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="nK2-oS-GKW" secondAttribute="trailing" constant="64" id="fki-I4-Mf6"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="J0P-yA-AJf" secondAttribute="trailing" constant="64" id="fmg-90-hdY"/>
+                <constraint firstItem="Qs3-7O-B0z" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="64" id="hwU-6x-bY9"/>
                 <constraint firstItem="nK2-oS-GKW" firstAttribute="top" secondItem="woA-cv-WRM" secondAttribute="bottom" constant="8" id="iDF-3o-EP2"/>
                 <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="GUl-BP-a3l" secondAttribute="trailing" constant="64" id="iZ6-he-6Lg"/>
                 <constraint firstItem="adq-Sk-l8U" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="64" id="mE5-Nb-LhU"/>

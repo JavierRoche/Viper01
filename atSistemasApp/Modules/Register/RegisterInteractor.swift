@@ -13,12 +13,14 @@ class RegisterInteractor: RegisterInteractorContract {
     weak var output: RegisterInteractorOutputContract?
 
     var userDefaultsProvider: UserDefaultsProvider
+    var keyChainProvider: KeyChainProvider
     
     
     // MARK: LifeCycle
     
-    init (provider: UserDefaultsProvider) {
-        self.userDefaultsProvider = provider
+    init (userDefaultsProvider: UserDefaultsProvider, keyChainProvider: KeyChainProvider) {
+        self.userDefaultsProvider = userDefaultsProvider
+        self.keyChainProvider = keyChainProvider
     }
     
     
@@ -27,5 +29,13 @@ class RegisterInteractor: RegisterInteractorContract {
     func saveLastUserView() {
         /// Save the last user view tapped
         userDefaultsProvider.saveUserView(view: 1)
+    }
+    
+    func saveCredentials(email: String, password: String) -> String? {
+        return keyChainProvider.save(email: email, password: password)
+    }
+    
+    func loadCredentials(email: String, password: String) -> String? {
+        return keyChainProvider.load(email: email, password: password)
     }
 }

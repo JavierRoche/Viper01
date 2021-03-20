@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-// MARK: - Enums
+// MARK: Enums
 
 /// Different transition types to present views
 enum TransitionType {
@@ -20,17 +20,23 @@ enum TransitionType {
 
 /// Different Alert types with generic title strings
 enum AlertType {
+    case information
     case genericError
     
     var title: String {
         switch self {
+        case .information:
+            return Constants.information
+            
         case .genericError:
-            return "_generic_error_title"
+            return Constants.error
         }
     }
 }
 
-// MARK: - Class
+
+// MARK: Class
+
 class BaseWireframe {
     
     /// Launch a Push or Modal Presentation to a Use Case or Any View with Inherance from UIViewController
