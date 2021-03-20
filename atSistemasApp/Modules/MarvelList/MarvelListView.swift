@@ -114,7 +114,7 @@ extension MarvelListView: UITableViewDataSource {
 }
 
 
-//MARK: MarvelListCell Delegate
+// MARK: MarvelListCell Delegate
 
 extension MarvelListView: MarvelListCellDelegate {
     func favouriteButtonTapped(char: Character) {

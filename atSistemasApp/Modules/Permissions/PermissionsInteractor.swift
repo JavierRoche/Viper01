@@ -63,7 +63,10 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
         DispatchQueue.main.async { [weak self] in
             switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
             case .authorized:
-                /// README: Accederiamos a la camara trasera con AVCaptureDevice y la intentariamos inicializar sobre un AVCaptureDeviceInput. Segun si queremos tomar una foto o, por ejemplo, leer un QR pues inicializariamos el output con imagen fija o video. En los metodos delegados AVCapturePhotoCaptureDelegate y/o AVCaptureVideoDataOutputSampleBufferDelegate nos llegarian las fotos o los frames de las fotos, respecticamente, con los que hariamos lo que necesitasemos.
+                /// README: Accederiamos a la camara trasera con AVCaptureDevice y la intentariamos inicializar sobre un AVCaptureDeviceInput.
+                /// Segun si queremos tomar una foto o, por ejemplo, leer un QR pues inicializariamos el output con imagen fija o video.
+                /// En los metodos delegados AVCapturePhotoCaptureDelegate y/o AVCaptureVideoDataOutputSampleBufferDelegate
+                /// nos llegarian las fotos o los frames de las fotos, respecticamente, con los que hariamos lo que necesitasemos.
                 permission.granted = true
                 self?.output?.cameraPermissionRequested(permission: permission)
                 
@@ -114,13 +117,13 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
         DispatchQueue.main.async { [weak self] in
             PHPhotoLibrary.requestAuthorization({ status in
                 switch status {
-                    case .authorized:
-                        permission.granted = true
-                        self?.output?.locationPermissionRequested(permission: permission)
+                case .authorized:
+                    permission.granted = true
+                    self?.output?.locationPermissionRequested(permission: permission)
                     
-                    default:
-                        permission.granted = false
-                        self?.output?.locationPermissionRequested(permission: permission)
+                default:
+                    permission.granted = false
+                    self?.output?.locationPermissionRequested(permission: permission)
                 }
             })
         }

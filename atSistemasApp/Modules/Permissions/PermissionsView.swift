@@ -45,7 +45,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     private var permissionList: [Permission] = []
     /// Computable var set what permissions have to be showed
     private var permissionStateSelected: PermissionState = .todo {
-        didSet  {
+        didSet {
             currentPermissionList = permissionList.filter {
                 $0.state == permissionStateSelected.rawValue
             }
@@ -81,7 +81,8 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer. Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
+        /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer.
+        /// Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
         segmentControl.frame = CGRect(x: 64, y: 264, width: (view.bounds.width - 128), height: 31)
     }
     
@@ -135,7 +136,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
             tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor)
         ])
     }
 }
@@ -158,7 +159,8 @@ extension PermissionsView: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PermissionsCell.self), for: indexPath) as? PermissionsCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: PermissionsCell.self),
+                                                       for: indexPath) as? PermissionsCell else {
             fatalError()
         }
         cell.delegate = self

@@ -12,6 +12,7 @@ class MarvelDetailComicsCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     var comicList = [Comic]()
     
+    
     // MARK: Lifecycle
     
     override func awakeFromNib() {
@@ -22,8 +23,6 @@ class MarvelDetailComicsCell: UITableViewCell {
         collectionView.register(nib, forCellWithReuseIdentifier: String(describing: ComicCell.self))
         collectionView.dataSource = self
     }
-    
-    override func prepareForReuse() {}
     
     
     // MARK: Public Functions
@@ -47,7 +46,8 @@ extension MarvelDetailComicsCell: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: ComicCell.self), for: indexPath) as? ComicCell else {
+        guard let cell = collectionView
+            .dequeueReusableCell(withReuseIdentifier: String(describing: ComicCell.self), for: indexPath) as? ComicCell else {
             fatalError()
         }
         

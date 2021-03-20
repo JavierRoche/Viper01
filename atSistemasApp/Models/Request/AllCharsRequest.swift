@@ -19,12 +19,11 @@ struct AllCharsRequest: APIRequest {
         return Constants.path
     }
     
-    var parameters: [String : String] {
-        var params: [String : String] = [:]
+    var parameters: [String: String] {
+        var params: [String: String] = [:]
         params[Constants.ts] = Constants.tsValue
         params[Constants.apikey] = Constants.apikeyValue
         params[Constants.hash] = Constants.hashValue
         return params
     }
 }
-

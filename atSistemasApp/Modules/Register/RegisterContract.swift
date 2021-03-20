@@ -13,7 +13,7 @@ protocol RegisterEntityContract {
     
 }
 
-protocol RegisterInteractorContract  {
+protocol RegisterInteractorContract {
     var output: RegisterInteractorOutputContract? {get set}
     
     func saveLastUserView()

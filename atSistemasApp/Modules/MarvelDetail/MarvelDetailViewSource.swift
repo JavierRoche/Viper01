@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 // MARK: UITableView Delegate
 
 extension MarvelDetailView: UITableViewDelegate {
@@ -30,17 +29,18 @@ extension MarvelDetailView: UITableViewDataSource {
         return 1
     }
     
+    /// Char data cell / Comics cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.section {
         case 0:
-            /// Char data cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailDataCell.self), for: indexPath) as? MarvelDetailDataCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailDataCell.self),
+                                                           for: indexPath) as? MarvelDetailDataCell else { fatalError() }
             cell.configureCell(char: char)
             return cell
-         
+            
         case 1:
-            /// Comics cell
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailComicsCell.self), for: indexPath) as? MarvelDetailComicsCell else { fatalError() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: MarvelDetailComicsCell.self),
+                                                           for: indexPath) as? MarvelDetailComicsCell else { fatalError() }
             cell.configureCell(comicList: comicList)
             return cell
         

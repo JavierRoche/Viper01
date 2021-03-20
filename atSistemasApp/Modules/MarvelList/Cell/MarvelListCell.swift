@@ -69,7 +69,7 @@ class MarvelListCell: UITableViewCell {
             case .success(let value):
                 self?.charImageView.image = value.image
                 
-            case .failure(_):
+            case .failure:
                 self?.charImageView.image = UIImage(systemName: Constants.iconImageWarning)
             }
         }

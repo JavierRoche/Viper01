@@ -12,4 +12,3 @@ protocol KeyChainProviderContract {
     func save(email: String, password: String) -> String?
     func load(email: String, password: String) -> String?
 }
-

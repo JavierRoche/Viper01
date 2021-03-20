@@ -31,7 +31,7 @@ class RegisterPresenter: RegisterPresenterContract {
     }
     
     func saveCredentials(email: String, password: String) -> Bool {
-        guard let _ = interactor.saveCredentials(email: email, password: password) else {
+        if interactor.saveCredentials(email: email, password: password) != nil {
             wireframe?.showErrorModalAlert(view, content: "\(Constants.couldntSaveCredentials)\(email)", customActions: [action], completion: nil)
             return false
         }

@@ -9,7 +9,6 @@
 import Foundation
 
 class KeyChainProvider: KeyChainProviderContract {
-    
     // MARK: Public Functions
     
     /// Save credentials
@@ -24,10 +23,10 @@ class KeyChainProvider: KeyChainProviderContract {
         /// Add item with a OSStatus object
         let status: OSStatus = SecItemAdd(query as CFDictionary, nil)
         switch status {
-            case errSecSuccess:
+        case errSecSuccess:
                 return email
             
-            default:
+        default:
                 return nil
         }
     }
@@ -40,20 +39,18 @@ class KeyChainProvider: KeyChainProviderContract {
         var item: CFTypeRef?
         let status: OSStatus = SecItemCopyMatching(query, &item)
         switch status {
-            case errSecSuccess:
-                guard let itemData = item as? [String: Any],
+        case errSecSuccess:
+            guard let itemData = item as? [String: Any],
                     let credentialsData = itemData[kSecValueData as String] as? Data,
                     let credentials = String(data: credentialsData, encoding: .utf8),
-                    credentials == password else {
-                    return nil
-                }
-                return email
+                    credentials == password else { return nil }
+            return email
             
-            case errSecItemNotFound:
-                return nil
+        case errSecItemNotFound:
+            return nil
             
-            default:
-                return nil
+        default:
+            return nil
         }
     }
     

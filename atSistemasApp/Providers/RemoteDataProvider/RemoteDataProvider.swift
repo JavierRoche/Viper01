@@ -32,7 +32,7 @@ class RemoteDataProvider: RemoteDataProviderContract {
         let session = Session(configuration: configuration)
         return session
     }()
-    
+        
     
     // MARK: Public Functions
     
@@ -44,7 +44,7 @@ class RemoteDataProvider: RemoteDataProviderContract {
                 .responseDecodable(of: AllCharsResponse.self) { response in
                 
                 switch response.result {
-                case .success(_):
+                case .success:
                     do {
                         let charList = try response.result.get().data.results as [Character]
                         promise.fulfill(charList)
@@ -53,7 +53,7 @@ class RemoteDataProvider: RemoteDataProviderContract {
                         promise.reject(NetworkError.badData)
                     }
 
-                case .failure(_):
+                case .failure:
                     promise.reject(NetworkError.badResponse)
                 }
             }
@@ -68,7 +68,7 @@ class RemoteDataProvider: RemoteDataProviderContract {
                 .responseJSON { response in
                 
                 switch response.result {
-                case .success(_):
+                case .success:
                     do {
                         if let responseDic = try response.result.get() as? [String: Any],
                             let dataKeyDic = responseDic[Constants.keyData] as? [String: Any],
@@ -87,11 +87,10 @@ class RemoteDataProvider: RemoteDataProviderContract {
                         promise.reject(NetworkError.badData)
                     }
 
-                case .failure(_):
+                case .failure:
                     promise.reject(NetworkError.badResponse)
                 }
             }
         }
     }
 }
-

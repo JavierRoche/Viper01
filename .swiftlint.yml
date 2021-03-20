@@ -1,0 +1,56 @@
+excluded: # paths to ignore during linting. Takes precedence over `included`.
+  - Carthage
+  - Pods
+included: # paths to include during linting. `--path` is ignored if present.
+  - atSistemasApp
+disabled_rules: # rule identifiers to exclude from running
+  - shorthand_operator
+  - trailing_whitespace
+  - vertical_whitespace
+  - multiple_closures_with_trailing_closure
+opt_in_rules: # some rules are only opt-in
+  - control_statement
+  - empty_count
+  - trailing_newline
+  - colon
+  - comma
+  - unused_declaration
+  - unused_import
+# configurable rules can be customized from this configuration file
+# binary rules can set their severity level
+force_cast: warning # implicitly. Give warning only for force casting
+
+force_try:
+  severity: warning # explicitly. Give warning only for force try
+
+type_body_length:
+  - 250 # warning
+  - 350 # error
+
+line_length:
+  - 200 # warning
+  - 300 # error
+
+# or they can set both explicitly
+file_length:
+  warning: 500
+  error: 1000
+
+large_tuple: # warn user when using 3 values in tuple, give error if there are 4
+   - 3
+   - 4
+
+type_name:
+  min_length: 3 # only warning
+  max_length: # warning and error
+    warning: 40
+    error: 80
+  allowed_symbols: ["_"] # these are allowed in type names
+
+identifier_name:
+  min_length: # only min_length
+    warning: 1
+    error: 1 # only error
+  allowed_symbols: ["_"]
+
+reporter: "xcode"

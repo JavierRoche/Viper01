@@ -33,7 +33,8 @@ class MarvelDetailPresenter: MarvelDetailPresenterContract {
         }.catch { [weak self] error in
             guard let promiseError = error as? NetworkError else { return }
             let action = UIAlertAction(title: Constants.accept, style: .default, handler: nil)
-            self?.wireframe?.showErrorModalAlert(self?.view, content: promiseError.localizedDescription, customActions: [action], completion: nil)
+            self?.wireframe?.showErrorModalAlert(self?.view, content: promiseError.localizedDescription,
+                                                 customActions: [action], completion: nil)
             self?.view.comicListDidChange(comicList: [])
         }
     }

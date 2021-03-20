@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 // MARK: Enums
 
 /// Different transition types to present views
@@ -106,11 +107,6 @@ class BaseWireframe {
         }
     }
     
-    /// Dismiss top-most view
-    func dismissView() {
-        //UIViewController.topViewController()?.dismiss(animated: true)
-    }
-    
     /// Dismiss Navigation Controller to Root View
     ///
     /// - Parameters:
@@ -163,8 +159,6 @@ class BaseWireframe {
             wrappedActions.forEach({
                 basicAlert.addAction($0)
             })
-        } else {
-            //basicAlert.addAction(UIAlertAction.init(title: "_generic_accept_title".localizedString(), style: .default, handler: nil))
         }
         self.presentView(from: view, useCase: basicAlert, withTransition: .modal, completion: completion)
     }
@@ -193,5 +187,3 @@ class BaseWireframe {
         self.presentView(from: view, useCase: basicErrorAlert, withTransition: .modal, completion: completion)
     }
 }
-
-

@@ -13,7 +13,7 @@ import Kingfisher
 class ComicCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
         
-        
+    
     // MARK: Lifecycle
     
     override func awakeFromNib() {
@@ -40,7 +40,7 @@ class ComicCell: UICollectionViewCell {
             case .success(let value):
                 self?.imageView.image = value.image
                 
-            case .failure(_):
+            case .failure:
                 self?.imageView.image = UIImage(systemName: Constants.iconImageWarning)
             }
         }

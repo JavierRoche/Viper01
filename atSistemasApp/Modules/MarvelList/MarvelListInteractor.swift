@@ -28,8 +28,8 @@ class MarvelListInteractor: MarvelListInteractorContract {
     
     // MARK: Public Functions
     
+    /// Save the last user view tapped
     func saveLastUserView() {
-        /// Save the last user view tapped
         userDefaultsProvider.saveUserView(view: 0)
     }
     

@@ -14,6 +14,7 @@ PODS:
   - PromiseKit/UIKit (6.13.1):
     - PromiseKit/CorePromise
   - SnapKit (5.0.1)
+  - SwiftLint (0.43.1)
 
 DEPENDENCIES:
   - Alamofire
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - ObjectMapper
   - PromiseKit
   - SnapKit
+  - SwiftLint
 
 SPEC REPOS:
   trunk:
@@ -29,6 +31,7 @@ SPEC REPOS:
     - ObjectMapper
     - PromiseKit
     - SnapKit
+    - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
@@ -36,7 +39,8 @@ SPEC CHECKSUMS:
   ObjectMapper: 1eb41f610210777375fa806bf161dc39fb832b81
   PromiseKit: 28fda91c973cc377875d8c0ea4f973013c05b6db
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+  SwiftLint: 99f82d07b837b942dd563c668de129a03fc3fb52
 
-PODFILE CHECKSUM: 389f3a4d2f6a2b31a48df9aba62b81e766c3a733
+PODFILE CHECKSUM: 2dd6fd74d2733160cfc440b4aba124ef23eda4d4
 
 COCOAPODS: 1.9.1

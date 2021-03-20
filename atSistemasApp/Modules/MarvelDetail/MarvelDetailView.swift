@@ -33,6 +33,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
     var char: Character!
     var comicList: [Comic] = []
     
+    
 	// MARK: LifeCycle
     
     override func viewDidLoad() {
@@ -87,7 +88,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
             case .success(let value):
                 self?.charImageView.image = value.image
                 
-            case .failure(_):
+            case .failure:
                 self?.charImageView.image = UIImage(systemName: Constants.iconImageWarning)
             }
         }

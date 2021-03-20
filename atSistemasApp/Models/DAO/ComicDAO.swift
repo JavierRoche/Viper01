@@ -26,4 +26,3 @@ struct ComicDAO: ImmutableMappable {
         thumbnail >>> map["thumbnail"]
     }
 }
-

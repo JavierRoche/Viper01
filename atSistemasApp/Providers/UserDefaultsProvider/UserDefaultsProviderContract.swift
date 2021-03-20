@@ -12,4 +12,3 @@ protocol UserDefaultsProviderContract {
     func saveUserView(view: Int)
     func loadUserView() -> Int
 }
-

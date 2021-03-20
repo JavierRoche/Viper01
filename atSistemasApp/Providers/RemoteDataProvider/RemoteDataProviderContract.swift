@@ -13,4 +13,3 @@ protocol RemoteDataProviderContract {
     func fetchAllChars() -> Promise<[Character]>
     func fetchCharComics(charId: Int) -> Promise<[ComicDAO]>
 }
-

@@ -15,7 +15,6 @@ class RegisterInteractor: RegisterInteractorContract {
     var userDefaultsProvider: UserDefaultsProvider
     var keyChainProvider: KeyChainProvider
     
-    
     // MARK: LifeCycle
     
     init (userDefaultsProvider: UserDefaultsProvider, keyChainProvider: KeyChainProvider) {
@@ -23,11 +22,10 @@ class RegisterInteractor: RegisterInteractorContract {
         self.keyChainProvider = keyChainProvider
     }
     
-    
     // MARK: Public functions
     
+    /// Save the last user view tapped
     func saveLastUserView() {
-        /// Save the last user view tapped
         userDefaultsProvider.saveUserView(view: 1)
     }
     

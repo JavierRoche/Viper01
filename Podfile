@@ -11,4 +11,5 @@ target 'atSistemasApp' do
   pod 'ObjectMapper'
   pod 'Kingfisher'
   pod 'SnapKit'
+  pod 'SwiftLint'
 end

@@ -69,7 +69,7 @@ class PermissionsCell: UITableViewCell {
     
     
     // MARK: Private Functions
-        
+    
     fileprivate func setViewsHierarchy() {
         self.addSubview(permissionLabel)
         self.addSubview(grantedLabel)
