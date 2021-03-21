@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EAAA1AD3A8A1B59AB91319EE40752C6D"
-               BuildableName = "Alamofire.framework"
-               BlueprintName = "Alamofire"
-               ReferencedContainer = "container:Pods.xcodeproj">
+               BlueprintIdentifier = "18D5BD4825F902B70037CB70"
+               BuildableName = "atSistemasApp.app"
+               BlueprintName = "atSistemasApp"
+               ReferencedContainer = "container:atSistemasApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -28,10 +28,20 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "18D5BD5E25F902C80037CB70"
+               BuildableName = "atSistemasAppTests.xctest"
+               BlueprintName = "atSistemasAppTests"
+               ReferencedContainer = "container:atSistemasApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release (Production)"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
@@ -40,6 +50,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "18D5BD4825F902B70037CB70"
+            BuildableName = "atSistemasApp.app"
+            BlueprintName = "atSistemasApp"
+            ReferencedContainer = "container:atSistemasApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -47,6 +67,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "18D5BD4825F902B70037CB70"
+            BuildableName = "atSistemasApp.app"
+            BlueprintName = "atSistemasApp"
+            ReferencedContainer = "container:atSistemasApp.xcodeproj">
+         </BuildableReference>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

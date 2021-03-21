@@ -1,0 +1,18 @@
+//
+//  Production.xcconfig
+//  atSistemasApp
+//
+//  Created by APPLE on 21/03/2021.
+//  Copyright © 2021 Javier Roche. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+#include "Pods/Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.debug.xcconfig"
+#include "Pods/Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.release.xcconfig"
+
+APP_ENVIRONMENT=Production
+
+// App Settings
+APP_NAME = atSistemasApp
+APP_BUNDLE_ID = Roche.atSistemasApp.pro

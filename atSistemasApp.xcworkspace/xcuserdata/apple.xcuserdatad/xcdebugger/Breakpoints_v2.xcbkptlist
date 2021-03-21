@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "A86F86AD-7608-491D-BBB8-EE393123930F"
+   uuid = "3C0DF848-DD27-442F-8B4D-30C4467085EE"
    type = "0"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AD5F04C7-F512-4189-B1AE-6CAF43668286"
-            shouldBeEnabled = "No"
+            uuid = "E055683B-D01E-4C58-B766-4C4F78392D9B"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "atSistemasApp/Models/Request/CharComicsRequest.swift"
+            filePath = "atSistemasApp/Modules/MarvelList/MarvelListView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
             endingLineNumber = "32"
-            landmarkName = "parameters"
+            landmarkName = "appName"
             landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
