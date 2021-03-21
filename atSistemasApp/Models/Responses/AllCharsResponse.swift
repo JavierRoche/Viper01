@@ -25,6 +25,7 @@ struct Character: Codable, Hashable {
     let name: String?
     let description: String?
     let thumbnail: Thumbnail
+    let urls: [UrlList]
     var favourite: Bool?
 }
 
@@ -41,4 +42,9 @@ struct Thumbnail: Codable, Hashable {
         path = thumbnailDAO.path
         imageExtension = thumbnailDAO.imageExtension
     }
+}
+
+struct UrlList: Codable, Hashable {
+    let type: String
+    let url: String
 }

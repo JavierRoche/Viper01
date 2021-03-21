@@ -8,6 +8,7 @@
 //
 
 import UIKit
+import WebKit
 
 enum Sections: Int {
     case data = 0
@@ -23,7 +24,7 @@ enum Sections: Int {
     }
 }
 
-class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
+class MarvelDetailView: BaseViewController, MarvelDetailViewContract, WKNavigationDelegate, WKUIDelegate {
     @IBOutlet weak var charImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -51,6 +52,22 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
     }
     
     
+    // MARK: User Interactions
+    
+    @objc private func tapOnPhoto(sender: UIImageView!) {
+        /// Get wiki url from char if exists
+        let wikiUrlChar = char.urls[1].type == Constants.wiki ? char.urls[1].url : nil
+        guard let charUrl = wikiUrlChar else { return }
+        let fixedUrl = Constants.https + charUrl.dropFirst(4)
+        guard let url = URL(string: fixedUrl) else { return }
+        
+        let webView = WKWebView()
+        webView.navigationDelegate = self
+        view = webView
+        webView.load(URLRequest(url: url))
+    }
+    
+    
     // MARK: Public Functions
     
     func comicListDidChange(comicList: [Comic]) {
@@ -74,6 +91,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
         tableView.rowHeight = UITableView.automaticDimension
         
         /// Image settings
+        charImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnPhoto)))
         charImageView.layer.cornerRadius = 8.0
         charImageView.clipsToBounds = true
     }
@@ -81,8 +99,8 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract {
     fileprivate func setCharImage() {
         /// Tune image url and retrieve with Kingfisher
         let http = "\(char.thumbnail.path ?? String())/standard_large.\(char.thumbnail.imageExtension ?? String())"
-        let imageURL = Constants.https + http.dropFirst(4)
-        guard let url = URL.init(string: imageURL) else { return }
+        let urlFixed = Constants.https + http.dropFirst(4)
+        guard let url = URL.init(string: urlFixed) else { return }
         self.charImageView.kf.setImage(with: url) { [weak self] result in
             switch result {
             case .success(let value):

@@ -62,8 +62,8 @@ class MarvelListCell: UITableViewCell {
     fileprivate func setImageCell() {
         /// Tune image url and retrieve with Kingfisher
         let http = "\(char.thumbnail.path ?? String())/\(Constants.urlImageSize).\(char.thumbnail.imageExtension ?? String())"
-        let imageURL = Constants.https + http.dropFirst(4)
-        guard let url = URL.init(string: imageURL) else { return }
+        let urlFixed = Constants.https + http.dropFirst(4)
+        guard let url = URL.init(string: urlFixed) else { return }
         charImageView.kf.setImage(with: url) { [weak self] result in
             switch result {
             case .success(let value):

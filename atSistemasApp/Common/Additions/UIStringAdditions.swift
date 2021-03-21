@@ -60,4 +60,5 @@ enum Constants {
     static let notLogged: String = "Not logged"
     static let loggedAs: String = "Logged as "
     static let userLogged: String = "User logged"
+    static let wiki: String = "wiki"
 }
