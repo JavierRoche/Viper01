@@ -29,6 +29,6 @@ class MarvelDetailDataCell: UITableViewCell {
     
     func configureCell(char: Character) {
         nameLabel.text = char.name
-        descriptionLabel.text = char.description
+        descriptionLabel.text = char.description!.isEmpty ? Constants.descriptionNotFound : char.description
     }
 }

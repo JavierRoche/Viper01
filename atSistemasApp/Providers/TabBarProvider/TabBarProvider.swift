@@ -35,7 +35,7 @@ class TabBarProvider: UITabBarController, TabBarProviderContract {
                                 permissionsViewNavigationController]
         self.tabBar.barStyle = .default
         self.tabBar.isTranslucent = false
-        self.tabBar.tintColor = UIColor.black
+        self.tabBar.tintColor = UIColor.tangerine
         self.selectedIndex = viewIndex
     }
     

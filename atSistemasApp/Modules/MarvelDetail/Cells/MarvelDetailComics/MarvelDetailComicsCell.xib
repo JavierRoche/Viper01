@@ -19,7 +19,7 @@
                         <rect key="frame" x="8" y="8" width="398" height="100"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="100" id="HEZ-v9-Dah"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="HEZ-v9-Dah"/>
                         </constraints>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ULb-4z-IZR">
                             <size key="itemSize" width="100" height="100"/>

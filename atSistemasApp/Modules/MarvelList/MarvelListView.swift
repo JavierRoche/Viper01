@@ -23,14 +23,6 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
         refresh.addTarget(self, action: #selector(refreshTableViewData), for: .valueChanged)
         return refresh
     }()
-    
-    lazy var appName: String = {
-        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
-            let appName = infoDictionary["APP_NAME"] as? String else {
-            fatalError("Plist file not found")
-        }
-        return appName
-    }()
 
     
 	// MARK: LifeCycle
@@ -78,7 +70,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.title = appName
+        self.title = AppDelegate.appName
     }
     
     fileprivate func updateWithFavourites() {

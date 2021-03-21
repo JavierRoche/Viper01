@@ -11,6 +11,14 @@ import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
+    /// DB Object Container
+    static let appName: String = {
+        guard let infoDictionary: [String: Any] = Bundle.main.infoDictionary,
+            let appName = infoDictionary["APP_NAME"] as? String else {
+            return String()
+        }
+        return appName
+    }()
     
     /// DB Object Container
     lazy var persistentContainer: NSPersistentContainer = {

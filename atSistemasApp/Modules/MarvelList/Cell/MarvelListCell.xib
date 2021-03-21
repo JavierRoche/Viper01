@@ -28,7 +28,7 @@
                             <constraint firstAttribute="height" constant="40" id="Nzj-Li-lba"/>
                             <constraint firstAttribute="width" constant="40" id="zQC-Al-9LU"/>
                         </constraints>
-                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.95294117649999999" green="0.56470588239999997" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" image="heart" catalog="system"/>
                         <state key="selected" image="heart.fill" catalog="system"/>
                         <connections>

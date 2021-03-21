@@ -19,26 +19,26 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XYW-i7-fsY">
-                    <rect key="frame" x="8" y="460" width="398" height="402"/>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XYW-i7-fsY">
+                    <rect key="frame" x="8" y="400" width="398" height="470"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                 </tableView>
-                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Uj-s1z">
-                    <rect key="frame" x="8" y="52" width="398" height="400"/>
+                <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="Wfg-Uj-s1z">
+                    <rect key="frame" x="8" y="52" width="398" height="340"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="400" id="qoe-v8-tZk"/>
+                        <constraint firstAttribute="height" constant="340" id="yxD-fh-ech"/>
                     </constraints>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="Wfg-Uj-s1z" firstAttribute="top" secondItem="tAt-aP-EcC" secondAttribute="top" constant="8" id="2AS-HP-CLG"/>
-                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="Wfg-Uj-s1z" secondAttribute="trailing" constant="8" id="78D-rz-T45"/>
-                <constraint firstItem="XYW-i7-fsY" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="8" id="IfQ-2j-Dnj"/>
-                <constraint firstItem="XYW-i7-fsY" firstAttribute="top" secondItem="Wfg-Uj-s1z" secondAttribute="bottom" constant="8" id="YG8-eP-DKc"/>
-                <constraint firstItem="Wfg-Uj-s1z" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="8" id="d20-tP-YDj"/>
-                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="XYW-i7-fsY" secondAttribute="trailing" constant="8" id="fIf-kS-A21"/>
-                <constraint firstItem="tAt-aP-EcC" firstAttribute="bottom" secondItem="XYW-i7-fsY" secondAttribute="bottom" id="v3L-ju-4eI"/>
+                <constraint firstItem="Wfg-Uj-s1z" firstAttribute="top" secondItem="tAt-aP-EcC" secondAttribute="top" constant="8" id="29P-ra-fHq"/>
+                <constraint firstItem="Wfg-Uj-s1z" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="8" id="4eu-91-bKK"/>
+                <constraint firstItem="XYW-i7-fsY" firstAttribute="bottom" secondItem="tAt-aP-EcC" secondAttribute="bottom" constant="8" id="CNx-EI-Lvc"/>
+                <constraint firstItem="XYW-i7-fsY" firstAttribute="top" secondItem="Wfg-Uj-s1z" secondAttribute="bottom" constant="8" id="Mjp-yD-kZ9"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="Wfg-Uj-s1z" secondAttribute="trailing" constant="8" id="SnW-T6-6H7"/>
+                <constraint firstItem="tAt-aP-EcC" firstAttribute="trailing" secondItem="XYW-i7-fsY" secondAttribute="trailing" constant="8" id="nmA-Fg-c6r"/>
+                <constraint firstItem="XYW-i7-fsY" firstAttribute="leading" secondItem="tAt-aP-EcC" secondAttribute="leading" constant="8" id="oYK-hR-vN2"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="tAt-aP-EcC"/>
             <point key="canvasLocation" x="140.57971014492756" y="153.34821428571428"/>

@@ -20,6 +20,7 @@
 		186AC92F25FA60C7009A40B6 /* AllCharsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186AC92E25FA60C7009A40B6 /* AllCharsRequest.swift */; };
 		189A1E67260132C200B9B41D /* MarvelDetailViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A1E66260132C200B9B41D /* MarvelDetailViewSource.swift */; };
 		18A1A599260792A30067DFA4 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A1A598260792A30067DFA4 /* Preferences.plist */; };
+		18A1A5AA2607B5E10067DFA4 /* UISwitchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1A5A92607B5E10067DFA4 /* UISwitchExtension.swift */; };
 		18D5BD4D25F902B70037CB70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4C25F902B70037CB70 /* AppDelegate.swift */; };
 		18D5BD4F25F902B70037CB70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */; };
 		18D5BD5625F902C70037CB70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD5525F902C70037CB70 /* Assets.xcassets */; };
@@ -109,6 +110,7 @@
 		18A1A598260792A30067DFA4 /* Preferences.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Preferences.plist; sourceTree = "<group>"; };
 		18A1A5A726079EA10067DFA4 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		18A1A5A826079EC20067DFA4 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
+		18A1A5A92607B5E10067DFA4 /* UISwitchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitchExtension.swift; sourceTree = "<group>"; };
 		18D5BD4925F902B70037CB70 /* atSistemasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atSistemasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D5BD4C25F902B70037CB70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 			children = (
 				18DFC18A25FB773B005632EE /* UIColorExtension.swift */,
 				18DFC18825FB773B005632EE /* UIFontExtension.swift */,
+				18A1A5A92607B5E10067DFA4 /* UISwitchExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 				18DFC1A425FD39A7005632EE /* DataModel.xcdatamodeld in Sources */,
 				18D5BD8425F90ECE0037CB70 /* MarvelListInteractor.swift in Sources */,
 				18D5BDA525F90EF40037CB70 /* PermissionsView.swift in Sources */,
+				18A1A5AA2607B5E10067DFA4 /* UISwitchExtension.swift in Sources */,
 				18DFC1AE25FE7E49005632EE /* MarvelDetailContract.swift in Sources */,
 				18D5BD9325F90EE70037CB70 /* RegisterBuilder.swift in Sources */,
 				180FB814260633CF001BF52D /* KeyChainProviderContract.swift in Sources */,

@@ -8,8 +8,7 @@
 
 import UIKit
 
-extension UIFont {
-    class var fontStyle28Bold: UIFont {
-        return UIFont.systemFont(ofSize: 28.0, weight: .bold)
+extension UIFont {class var fontStyle20SemiBold: UIFont {
+        return UIFont.systemFont(ofSize: 20.0, weight: .semibold)
     }
 }

@@ -16,21 +16,23 @@ protocol PermissionsCellDelegate: class {
 class PermissionsCell: UITableViewCell {
     lazy var permissionLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textColor = UIColor.black
+        label.font = UIFont.fontStyle20SemiBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var grantedLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.textColor = UIColor.black
+        label.font = UIFont.fontStyle20SemiBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var permissionSwitch: UISwitch = {
         let switchy: UISwitch = UISwitch()
+        switchy.set(width: 65, height: 35)
         switchy.setOn(false, animated: false)
+        switchy.onTintColor = UIColor.tangerine
         switchy.addTarget(self, action: #selector(switchStateChanged), for: UIControl.Event.valueChanged)
         switchy.translatesAutoresizingMaskIntoConstraints = false
         return switchy
@@ -78,19 +80,19 @@ class PermissionsCell: UITableViewCell {
     
     fileprivate func setConstraints() {
         permissionLabel.snp.remakeConstraints { make in
-            make.top.equalTo(snp.top).inset(16)
-            make.bottom.equalTo(snp.bottom).offset(16)
-            make.leading.equalTo(snp.leading).inset(16)
+            make.top.equalTo(snp.top).inset(16.0)
+            make.bottom.equalTo(snp.bottom).offset(16.0)
+            make.leading.equalTo(snp.leading).inset(8.0)
         }
         
         grantedLabel.snp.remakeConstraints { make in
             make.centerY.equalTo(permissionLabel.snp.centerY)
-            make.trailing.equalTo(snp.trailing).offset(16)
+            make.trailing.equalTo(snp.trailing).offset(-8.0)
         }
         
         permissionSwitch.snp.remakeConstraints { make in
             make.centerY.equalTo(permissionLabel.snp.centerY)
-            make.trailing.equalTo(snp.trailing).inset(16)
+            make.trailing.equalTo(snp.trailing).inset(16.0)
         }
     }
     

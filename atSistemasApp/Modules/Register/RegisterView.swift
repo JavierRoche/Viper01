@@ -32,10 +32,9 @@ class RegisterView: BaseViewController, RegisterViewContract {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        emailText.delegate = self
-        passwordText.delegate = self
-        repeatText.delegate = self
         self.presenter.viewDidLoad()
+        
+        configureUI()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +62,26 @@ class RegisterView: BaseViewController, RegisterViewContract {
     
     
     // MARK: Private Functions
+    
+    fileprivate func configureUI() {
+        emailText.layer.borderColor = UIColor.tangerine.cgColor
+        emailText.layer.borderWidth = 1
+        emailText.layer.cornerRadius = 4.0
+        emailText.borderStyle = UITextField.BorderStyle.roundedRect
+        passwordText.layer.borderColor = UIColor.tangerine.cgColor
+        passwordText.layer.borderWidth = 1
+        passwordText.layer.cornerRadius = 4.0
+        passwordText.borderStyle = UITextField.BorderStyle.roundedRect
+        repeatText.layer.borderColor = UIColor.tangerine.cgColor
+        repeatText.layer.borderWidth = 1
+        repeatText.layer.cornerRadius = 4.0
+        repeatText.borderStyle = UITextField.BorderStyle.roundedRect
+        
+        emailText.delegate = self
+        passwordText.delegate = self
+        repeatText.delegate = self
+        self.title = AppDelegate.appName
+    }
     
     fileprivate func signUpInterface() {
         let originalTransform = signUpButton.transform

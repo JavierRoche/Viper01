@@ -60,4 +60,5 @@ enum Constants {
     static let wiki: String = "wiki"
     static let preferences: String = "Preferences"
     static let plist: String = "plist"
+    static let descriptionNotFound: String = "Description not found"
 }

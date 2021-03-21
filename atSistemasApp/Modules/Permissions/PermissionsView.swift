@@ -23,6 +23,8 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
         segment.insertSegment(withTitle: Constants.done, at: 1, animated: true)
         segment.selectedSegmentIndex = 0
         segment.layer.cornerRadius = 4.0
+        segment.backgroundColor = UIColor.tangerine
+        segment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.fontStyle20SemiBold], for: .normal)
         segment.addTarget(self, action: #selector(changeSegment), for: UIControl.Event.valueChanged)
         return segment
     }()
@@ -72,6 +74,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
         super.viewDidLoad()
 
         presenter.viewDidLoad()
+        self.title = AppDelegate.appName
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -83,7 +86,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     override func viewDidAppear(_ animated: Bool) {
         /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer.
         /// Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
-        segmentControl.frame = CGRect(x: 64, y: 264, width: (view.bounds.width - 128), height: 31)
+        segmentControl.frame = CGRect(x: 64, y: (view.bounds.height / 2) - 60, width: (view.bounds.width - 128), height: 40)
     }
     
     
@@ -146,7 +149,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
 
 extension PermissionsView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 40
+        return 60
     }
 }
 

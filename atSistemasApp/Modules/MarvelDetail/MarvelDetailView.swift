@@ -66,6 +66,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract, WKNavigati
         webView.navigationDelegate = self
         view = webView
         webView.load(URLRequest(url: url))
+        webView.allowsBackForwardNavigationGestures = true
     }
     
     
@@ -89,7 +90,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract, WKNavigati
         tableView.delegate = self
         tableView.dataSource = self
         tableView.tableFooterView = UIView(frame: CGRect.zero)
-        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 30
         
         /// Image settings
         charImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapOnPhoto)))
