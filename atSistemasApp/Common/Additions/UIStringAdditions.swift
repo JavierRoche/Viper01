@@ -27,11 +27,8 @@ enum Constants {
     static let apiURL: String = "https://gateway.marvel.com"
     static let path: String = "/v1/public/characters"
     static let ts: String = "ts"
-    static let tsValue: String = "tushe"
     static let apikey: String = "apikey"
-    static let apikeyValue: String = "254e6cdbf08e4e698f90ab85860d963a"
     static let hash: String = "hash"
-    static let hashValue: String = "51fa5500ec6da8064d901fdef50dfc4b"
     static let coreDataStorage: String = "DataModel"
     static let marvel: String = "Marvel"
     static let register: String = "Register"
@@ -61,4 +58,6 @@ enum Constants {
     static let loggedAs: String = "Logged as "
     static let userLogged: String = "User logged"
     static let wiki: String = "wiki"
+    static let preferences: String = "Preferences"
+    static let plist: String = "plist"
 }

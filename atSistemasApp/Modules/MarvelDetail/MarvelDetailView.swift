@@ -61,6 +61,7 @@ class MarvelDetailView: BaseViewController, MarvelDetailViewContract, WKNavigati
         let fixedUrl = Constants.https + charUrl.dropFirst(4)
         guard let url = URL(string: fixedUrl) else { return }
         
+        /// Launch the Web View
         let webView = WKWebView()
         webView.navigationDelegate = self
         view = webView

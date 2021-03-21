@@ -21,9 +21,14 @@ struct AllCharsRequest: APIRequest {
     
     var parameters: [String: String] {
         var params: [String: String] = [:]
-        params[Constants.ts] = Constants.tsValue
-        params[Constants.apikey] = Constants.apikeyValue
-        params[Constants.hash] = Constants.hashValue
+        
+        guard let path = Bundle.main.path(forResource: Constants.preferences, ofType: Constants.plist),
+            let xml = FileManager.default.contents(atPath: path),
+            let preferences = try? PropertyListDecoder().decode(APIKeys.self, from: xml) else { return params }
+        
+        params[Constants.ts] = preferences.tsValue
+        params[Constants.apikey] = preferences.apikeyValue
+        params[Constants.hash] = preferences.hashValue
         return params
     }
 }

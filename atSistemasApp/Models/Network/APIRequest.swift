@@ -15,6 +15,12 @@ enum Method: String, CaseIterable {
     case DELETE
 }
 
+struct APIKeys: Codable {
+    var tsValue: String
+    var apikeyValue: String
+    var hashValue: String
+}
+
 protocol APIRequest {
     associatedtype Response: Codable
     var method: Method { get }
