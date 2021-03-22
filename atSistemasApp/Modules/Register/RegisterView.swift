@@ -33,7 +33,6 @@ class RegisterView: BaseViewController, RegisterViewContract {
         super.viewDidLoad()
         
         self.presenter.viewDidLoad()
-        
         configureUI()
     }
 

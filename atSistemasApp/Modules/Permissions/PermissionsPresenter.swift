@@ -15,6 +15,7 @@ class PermissionsPresenter: PermissionsPresenterContract {
     var entity: PermissionsEntityContract?
     var wireframe: PermissionsWireframeContract?
 
+    
     // MARK: Public Functions
     
     func viewDidLoad() {

@@ -28,6 +28,7 @@ protocol APIRequest {
     var parameters: [String: String] { get }
 }
 
+
 // MARK: APIRequest Implementation
 
 extension APIRequest {

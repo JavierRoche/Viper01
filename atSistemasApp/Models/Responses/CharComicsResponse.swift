@@ -30,3 +30,25 @@ struct Comic: Codable, Hashable {
         thumbnail = Thumbnail(thumbnailDAO: comicDAO.thumbnail)
     }
 }
+
+
+// MARK: Comic Extension
+
+extension Comic: Equatable {
+    /// Only used for testing
+    init(id: Int, title: String, thumbnail: Thumbnail) {
+        self.id = id
+        self.title = title
+        self.thumbnail = thumbnail
+    }
+    
+    static func == (lhs: Comic, rhs: Comic) -> Bool {
+        return lhs.id == rhs.id
+    }
+}
+
+extension Comic: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "<\(type(of: self)): \(self.id ?? Int())/\(self.title ?? String())>"
+    }
+}

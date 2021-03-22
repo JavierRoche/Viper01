@@ -38,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession,
@@ -57,6 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         saveDBContext()
     }
 }
+
 
 // MARK: CoreData Saving Support
 

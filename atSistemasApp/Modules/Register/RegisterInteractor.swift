@@ -15,12 +15,14 @@ class RegisterInteractor: RegisterInteractorContract {
     var userDefaultsProvider: UserDefaultsProvider
     var keyChainProvider: KeyChainProvider
     
+    
     // MARK: LifeCycle
     
     init (userDefaultsProvider: UserDefaultsProvider, keyChainProvider: KeyChainProvider) {
         self.userDefaultsProvider = userDefaultsProvider
         self.keyChainProvider = keyChainProvider
     }
+    
     
     // MARK: Public functions
     

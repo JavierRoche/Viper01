@@ -38,7 +38,6 @@ class MarvelDetailInteractor: MarvelDetailInteractorContract {
                 
             }.done { response in
                 let comicList = response.map({
-                    
                     Comic(comicDAO: $0)
                 })
                 promise.fulfill(comicList)

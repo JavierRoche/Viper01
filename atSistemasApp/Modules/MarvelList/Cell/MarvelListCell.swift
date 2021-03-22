@@ -34,7 +34,6 @@ class MarvelListCell: UITableViewCell {
     override func prepareForReuse() {
         charImageView.image = nil
         charLabel.text = nil
-        favouriteButton.setImage(UIImage.init(systemName: "heart"), for: .normal)
     }
     
     
