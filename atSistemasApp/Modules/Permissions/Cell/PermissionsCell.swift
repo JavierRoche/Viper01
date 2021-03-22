@@ -16,14 +16,14 @@ protocol PermissionsCellDelegate: class {
 class PermissionsCell: UITableViewCell {
     lazy var permissionLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.font = UIFont.fontStyle20SemiBold
+        label.font = UIFont.fontStyle17SemiBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
     lazy var grantedLabel: UILabel = {
         let label: UILabel = UILabel()
-        label.font = UIFont.fontStyle20SemiBold
+        label.font = UIFont.fontStyle17SemiBold
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()

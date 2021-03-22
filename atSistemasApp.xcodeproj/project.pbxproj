@@ -86,6 +86,8 @@
 		18ED8A422608CE54007101F8 /* ThumbnailModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED8A412608CE54007101F8 /* ThumbnailModelTest.swift */; };
 		18ED8A442608E1F0007101F8 /* MarvelListInteractorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED8A432608E1F0007101F8 /* MarvelListInteractorMock.swift */; };
 		18ED8A462608E444007101F8 /* MarvelListInteractorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED8A452608E444007101F8 /* MarvelListInteractorTest.swift */; };
+		18ED8A492608F9FD007101F8 /* PermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED8A482608F9FD007101F8 /* PermissionProvider.swift */; };
+		18ED8A4B26091704007101F8 /* PermissionProviderContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ED8A4A26091704007101F8 /* PermissionProviderContract.swift */; };
 		21FFCC1108DE9080BBD7A260 /* Pods_atSistemasApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B37E29E9D33CDBCF21C6290 /* Pods_atSistemasApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -185,6 +187,8 @@
 		18ED8A412608CE54007101F8 /* ThumbnailModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThumbnailModelTest.swift; sourceTree = "<group>"; };
 		18ED8A432608E1F0007101F8 /* MarvelListInteractorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelListInteractorMock.swift; sourceTree = "<group>"; };
 		18ED8A452608E444007101F8 /* MarvelListInteractorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelListInteractorTest.swift; sourceTree = "<group>"; };
+		18ED8A482608F9FD007101F8 /* PermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionProvider.swift; sourceTree = "<group>"; };
+		18ED8A4A26091704007101F8 /* PermissionProviderContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionProviderContract.swift; sourceTree = "<group>"; };
 		261F00AD0D84A022B40395AF /* Pods-atSistemasApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atSistemasApp.release.xcconfig"; path = "Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.release.xcconfig"; sourceTree = "<group>"; };
 		4102CCB37B8FADB6377F5D46 /* Pods-atSistemasApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-atSistemasApp.debug.xcconfig"; path = "Target Support Files/Pods-atSistemasApp/Pods-atSistemasApp.debug.xcconfig"; sourceTree = "<group>"; };
 		6B37E29E9D33CDBCF21C6290 /* Pods_atSistemasApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_atSistemasApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -416,6 +420,7 @@
 		18D5BD7425F90B300037CB70 /* Providers */ = {
 			isa = PBXGroup;
 			children = (
+				18ED8A472608F9E0007101F8 /* PermissionProvider */,
 				18DFC19C25FD0803005632EE /* CoreDataProvider */,
 				180FB8102606337E001BF52D /* KeyChainProvider */,
 				186AC92825FA5D75009A40B6 /* RemoteDataProvider */,
@@ -558,6 +563,15 @@
 				18E666F02602582300EEC3A3 /* ThumbnailDAO.swift */,
 			);
 			path = DAO;
+			sourceTree = "<group>";
+		};
+		18ED8A472608F9E0007101F8 /* PermissionProvider */ = {
+			isa = PBXGroup;
+			children = (
+				18ED8A482608F9FD007101F8 /* PermissionProvider.swift */,
+				18ED8A4A26091704007101F8 /* PermissionProviderContract.swift */,
+			);
+			path = PermissionProvider;
 			sourceTree = "<group>";
 		};
 		28BF37423C62C4F787C21738 /* Pods */ = {
@@ -772,9 +786,11 @@
 				18D5BD8425F90ECE0037CB70 /* MarvelListInteractor.swift in Sources */,
 				18D5BDA525F90EF40037CB70 /* PermissionsView.swift in Sources */,
 				18A1A5AA2607B5E10067DFA4 /* UISwitchExtension.swift in Sources */,
+				18ED8A492608F9FD007101F8 /* PermissionProvider.swift in Sources */,
 				18DFC1AE25FE7E49005632EE /* MarvelDetailContract.swift in Sources */,
 				18D5BD9325F90EE70037CB70 /* RegisterBuilder.swift in Sources */,
 				180FB814260633CF001BF52D /* KeyChainProviderContract.swift in Sources */,
+				18ED8A4B26091704007101F8 /* PermissionProviderContract.swift in Sources */,
 				18D5BD4D25F902B70037CB70 /* AppDelegate.swift in Sources */,
 				18D5BD9525F90EE70037CB70 /* RegisterView.swift in Sources */,
 				18DFC1B525FE7E49005632EE /* MarvelDetailWireframe.swift in Sources */,

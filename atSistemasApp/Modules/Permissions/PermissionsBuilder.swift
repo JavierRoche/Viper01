@@ -18,7 +18,8 @@ class PermissionsBuilder {
         
         let userDefaultsProvider = UserDefaultsProvider()
         let coreDataProvider = CoreDataProvider()
-        let interactor = PermissionsInteractor(userDefaultsProvider: userDefaultsProvider, coreDataProvider: coreDataProvider)
+        let permissionProvider = PermissionProvider()
+        let interactor = PermissionsInteractor(userDefaultsProvider: userDefaultsProvider, coreDataProvider: coreDataProvider, permissionProvider: permissionProvider)
         
         view.presenter = presenter
         view.presenter.view = view

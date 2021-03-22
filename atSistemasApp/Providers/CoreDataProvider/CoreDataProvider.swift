@@ -42,6 +42,9 @@ class CoreDataProvider: CoreDataProviderContract {
         permission = createPermission()
         permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
         permission?.setValue(Constants.photosLibrary, forKey: Constants.entityPermissionTitle)
+        permission = createPermission()
+        permission?.setValue(Int16(PermissionState.todo.rawValue), forKey: Constants.entityPermissionState)
+        permission?.setValue(Constants.biometric, forKey: Constants.entityPermissionTitle)
         
         persistData()
     }

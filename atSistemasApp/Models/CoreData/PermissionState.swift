@@ -17,6 +17,7 @@ enum PermissionType: String {
     case camera
     case location
     case photosLibrary
+    case biometric
     
     var localizedString: String {
         switch self {
@@ -28,6 +29,9 @@ enum PermissionType: String {
             
         case .photosLibrary:
             return Constants.photosLibrary
+            
+        case .biometric:
+            return Constants.biometric
         }
     }
 }

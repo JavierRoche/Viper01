@@ -8,6 +8,7 @@
 //
 
 import Foundation
+import PromiseKit
 import AVFoundation
 import CoreLocation
 import PhotosUI
@@ -17,10 +18,10 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
 
     var userDefaultsProvider: UserDefaultsProvider
     var coreDataProvider: CoreDataProvider
+    var permissionProvider = PermissionProvider()
     
     lazy var locationManager: CLLocationManager = {
         let manager = CLLocationManager()
-        manager.delegate = self
         return manager
     }()
     /// User loc
@@ -31,9 +32,11 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     // MARK: LifeCycle
     
     init (userDefaultsProvider: UserDefaultsProvider,
-          coreDataProvider: CoreDataProvider) {
+          coreDataProvider: CoreDataProvider,
+          permissionProvider: PermissionProvider) {
         self.userDefaultsProvider = userDefaultsProvider
         self.coreDataProvider = coreDataProvider
+        self.permissionProvider = permissionProvider
     }
     
     
@@ -59,73 +62,113 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     }
     
     func requestForCameraPermission(permission: Permission) {
-        /// Evaluate video camera authorization state
-        DispatchQueue.main.async { [weak self] in
-            switch AVCaptureDevice.authorizationStatus(for: AVMediaType.video) {
-            case .authorized:
-                /// README: Accederiamos a la camara trasera con AVCaptureDevice y la intentariamos inicializar sobre un AVCaptureDeviceInput.
-                /// Segun si queremos tomar una foto o, por ejemplo, leer un QR pues inicializariamos el output con imagen fija o video.
-                /// En los metodos delegados AVCapturePhotoCaptureDelegate y/o AVCaptureVideoDataOutputSampleBufferDelegate
-                /// nos llegarian las fotos o los frames de las fotos, respecticamente, con los que hariamos lo que necesitasemos.
+        permission.granted = false
+        firstly {
+            permissionProvider.isEnabledCameraPermission()
+                
+        }.done { isEnable in
+            if isEnable {
                 permission.granted = true
-                self?.output?.cameraPermissionRequested(permission: permission)
-                
-            case .notDetermined:
-                AVCaptureDevice.requestAccess(for: .video) { status in
-                    if status == true {
+                self.output?.permissionRequested(permission: permission)
+                    
+            } else {
+                self.permissionProvider.requestForCameraPermission().done { success in
+                    if success {
                         permission.granted = true
-                        self?.output?.cameraPermissionRequested(permission: permission)
-                        /// README: mismo comentario que .authorized
-                        
+                        self.output?.permissionRequested(permission: permission)
+                            
                     } else {
-                        permission.granted = false
-                        self?.output?.cameraPermissionRequested(permission: permission)
+                        self.output?.permissionRequested(permission: permission)
                     }
+                        
+                }.catch { _ in
+                    self.output?.permissionRequested(permission: permission)
                 }
-                
-            default:
-                permission.granted = false
-                self?.output?.cameraPermissionRequested(permission: permission)
             }
+                
+        }.catch { _ in
+            self.output?.permissionRequested(permission: permission)
         }
     }
     
     func requestForLocationPermission(permission: Permission) {
+        permission.granted = false
         self.permission = permission
         
-        /// Evaluate geo location authorization state
-        DispatchQueue.main.async { [weak self] in
-            switch CLLocationManager.authorizationStatus() {
-            case .authorizedAlways, .authorizedWhenInUse:
-                permission.granted = true
-                self?.output?.locationPermissionRequested(permission: permission)
-            
-            case .notDetermined:
-                /// Request permissions and activate search
-                self?.locationManager.requestAlwaysAuthorization()
-                self?.locationManager.startUpdatingLocation()
+        firstly {
+            permissionProvider.isEnabledLocationPermission()
                 
-            default:
-                permission.granted = false
-                self?.output?.locationPermissionRequested(permission: permission)
+        }.done { isEnable in
+            if isEnable {
+                permission.granted = true
+                self.output?.permissionRequested(permission: permission)
+                    
+            } else {
+                /// README: Al responder por delegado no se puede definir como promesa
+                self.permissionProvider.requestForLocationPermission(interactor: self)
             }
+                
+        }.catch { _ in
+            self.output?.permissionRequested(permission: permission)
         }
     }
     
     func requestForPhotosLibraryPermission(permission: Permission) {
-        /// Evaluate photos library authorization state
-        DispatchQueue.main.async { [weak self] in
-            PHPhotoLibrary.requestAuthorization({ status in
-                switch status {
-                case .authorized:
-                    permission.granted = true
-                    self?.output?.locationPermissionRequested(permission: permission)
+        permission.granted = false
+        firstly {
+            permissionProvider.isEnabledPhotosLibraryPermission()
+                
+        }.done { isEnable in
+            if isEnable {
+                permission.granted = true
+                self.output?.permissionRequested(permission: permission)
                     
-                default:
-                    permission.granted = false
-                    self?.output?.locationPermissionRequested(permission: permission)
+            } else {
+                self.permissionProvider.requestForPhotosLibraryPermission().done { success in
+                    if success {
+                        permission.granted = true
+                        self.output?.permissionRequested(permission: permission)
+                            
+                    } else {
+                        self.output?.permissionRequested(permission: permission)
+                    }
+                        
+                }.catch { _ in
+                    self.output?.permissionRequested(permission: permission)
                 }
-            })
+            }
+                
+        }.catch { _ in
+            self.output?.permissionRequested(permission: permission)
+        }
+    }
+    
+    func requestForBiometricPermission(permission: Permission) {
+        permission.granted = false
+        firstly {
+            permissionProvider.isEnabledBiometricPermission()
+                
+        }.done { isEnable in
+            if isEnable {
+                self.permissionProvider.requestForBiometricPermission().done { success in
+                    if success {
+                        permission.granted = true
+                        self.output?.permissionRequested(permission: permission)
+                            
+                    } else {
+                        self.output?.permissionRequested(permission: permission)
+                    }
+                        
+                }.catch { _ in
+                    self.output?.permissionRequested(permission: permission)
+                }
+                    
+            } else {
+                self.output?.permissionRequested(permission: permission)
+            }
+                
+        }.catch { _ in
+            self.output?.permissionRequested(permission: permission)
         }
     }
 }
@@ -137,7 +180,8 @@ extension PermissionsInteractor: CLLocationManagerDelegate {
     /// User device execute this method on changing of location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         permission?.granted = true
-        output?.locationPermissionRequested(permission: permission!)
+        /// README:  ! 100% seguro usar !. Hubo que entrar en requestForLocationPermission
+        output?.permissionRequested(permission: permission!)
         currentLocation = locations.first
         print("[]\(String(describing: currentLocation))")
     }

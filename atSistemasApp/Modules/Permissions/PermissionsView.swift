@@ -24,7 +24,7 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
         segment.selectedSegmentIndex = 0
         segment.layer.cornerRadius = 4.0
         segment.backgroundColor = UIColor.tangerine
-        segment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.fontStyle20SemiBold], for: .normal)
+        segment.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.fontStyle17SemiBold], for: .normal)
         segment.addTarget(self, action: #selector(changeSegment), for: UIControl.Event.valueChanged)
         return segment
     }()
@@ -191,6 +191,9 @@ extension PermissionsView: PermissionsCellDelegate {
         
         case PermissionType.photosLibrary.localizedString:
             presenter.requestForPhotosLibraryPermission(permission: permission)
+            
+        case PermissionType.biometric.localizedString:
+            presenter.requestForBiometricPermission(permission: permission)
         
         default:
             break

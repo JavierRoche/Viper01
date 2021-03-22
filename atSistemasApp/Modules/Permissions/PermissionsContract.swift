@@ -22,11 +22,11 @@ protocol PermissionsInteractorContract {
     func requestForCameraPermission(permission: Permission)
     func requestForLocationPermission(permission: Permission)
     func requestForPhotosLibraryPermission(permission: Permission)
+    func requestForBiometricPermission(permission: Permission)
 }
 
 protocol PermissionsInteractorOutputContract: class {
-    func cameraPermissionRequested(permission: Permission)
-    func locationPermissionRequested(permission: Permission)
+    func permissionRequested(permission: Permission)
 }
 
 protocol PermissionsPresenterContract {
@@ -40,6 +40,7 @@ protocol PermissionsPresenterContract {
     func requestForCameraPermission(permission: Permission)
     func requestForLocationPermission(permission: Permission)
     func requestForPhotosLibraryPermission(permission: Permission)
+    func requestForBiometricPermission(permission: Permission)
 }
 
 protocol PermissionsViewContract: BaseViewController {

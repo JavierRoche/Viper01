@@ -38,17 +38,17 @@ class PermissionsPresenter: PermissionsPresenterContract {
     func requestForPhotosLibraryPermission(permission: Permission) {
         interactor.requestForPhotosLibraryPermission(permission: permission)
     }
+    
+    func requestForBiometricPermission(permission: Permission) {
+        interactor.requestForBiometricPermission(permission: permission)
+    }
 }
 
 
 // MARK: - PermissionsInteractorOutputContract
 
 extension PermissionsPresenter: PermissionsInteractorOutputContract {
-    func cameraPermissionRequested(permission: Permission) {
-        view.permissionRequested(permission: permission)
-    }
-    
-    func locationPermissionRequested(permission: Permission) {
+    func permissionRequested(permission: Permission) {
         view.permissionRequested(permission: permission)
     }
 }

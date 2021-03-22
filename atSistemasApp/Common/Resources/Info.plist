@@ -8,6 +8,8 @@
 	<string>$(APP_NAME)</string>
 	<key>APP_ENVIRONMENT</key>
 	<string>$(APP_ENVIRONMENT)</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>App needs to access the biometric to work</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>App needs to access the photo library to work</string>
 	<key>NSLocationWhenInUseUsageDescription</key>

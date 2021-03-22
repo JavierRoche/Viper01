@@ -48,6 +48,7 @@ enum Constants {
     static let camera: String = "Camera"
     static let location: String = "Geolocation"
     static let photosLibrary: String = "Photos Library"
+    static let biometric: String = "Biometric"
     static let authorized: String = "Authorized"
     static let notAuthorized: String = "Not authorized"
     static let missingData: String = "Missing data"
