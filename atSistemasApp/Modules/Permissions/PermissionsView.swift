@@ -70,23 +70,28 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
         setConstraints()
     }
     
+    /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer.
+    /// Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
+    override func viewDidLayoutSubviews() {
+        if UIDevice.current.orientation.isLandscape {
+            segmentControl.frame = CGRect(x: 64, y: 64, width: (view.bounds.width - 128), height: 40)
+            
+        } else if UIDevice.current.orientation.isPortrait {
+            segmentControl.frame = CGRect(x: 64, y: (view.bounds.height / 2) - 70, width: (view.bounds.width - 128), height: 40)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         presenter.viewDidLoad()
-        self.title = AppDelegate.appName
+        self.navigationController?.navigationBar.topItem?.title = AppDelegate.appName
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         presenter.viewWillAppear()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        /// README: nunca consegui colocar un UISegmentedControl por constraints definido por codigo; cualquier intento lo hace desaparecer.
-        /// Esto ya me habia peleado con ello hace tiempo y la unica forma que encontre de colocarlo en pantalla fue asi.
-        segmentControl.frame = CGRect(x: 64, y: (view.bounds.height / 2) - 60, width: (view.bounds.width - 128), height: 40)
     }
     
     
@@ -130,14 +135,14 @@ class PermissionsView: BaseViewController, PermissionsViewContract {
     fileprivate func setConstraints() {
         NSLayoutConstraint.activate([
             backgroundView.topAnchor.constraint(equalTo: view.topAnchor),
-            backgroundView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            backgroundView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            backgroundView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
+            backgroundView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            backgroundView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: segmentControl.bottomAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: segmentControl.safeAreaLayoutGuide.trailingAnchor)
         ])

@@ -21,6 +21,7 @@
 		189A1E67260132C200B9B41D /* MarvelDetailViewSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189A1E66260132C200B9B41D /* MarvelDetailViewSource.swift */; };
 		18A1A599260792A30067DFA4 /* Preferences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 18A1A598260792A30067DFA4 /* Preferences.plist */; };
 		18A1A5AA2607B5E10067DFA4 /* UISwitchExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A1A5A92607B5E10067DFA4 /* UISwitchExtension.swift */; };
+		18B0A08A260F460C007495F4 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18B0A089260F460C007495F4 /* RegisterView.xib */; };
 		18D5BD4D25F902B70037CB70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4C25F902B70037CB70 /* AppDelegate.swift */; };
 		18D5BD4F25F902B70037CB70 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */; };
 		18D5BD5625F902C70037CB70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD5525F902C70037CB70 /* Assets.xcassets */; };
@@ -41,7 +42,7 @@
 		18D5BD9325F90EE70037CB70 /* RegisterBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD8B25F90EE70037CB70 /* RegisterBuilder.swift */; };
 		18D5BD9425F90EE70037CB70 /* RegisterInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD8C25F90EE70037CB70 /* RegisterInteractor.swift */; };
 		18D5BD9525F90EE70037CB70 /* RegisterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD8D25F90EE70037CB70 /* RegisterView.swift */; };
-		18D5BD9625F90EE70037CB70 /* RegisterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD8E25F90EE70037CB70 /* RegisterView.xib */; };
+		18D5BD9625F90EE70037CB70 /* RegisterViewOld.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D5BD8E25F90EE70037CB70 /* RegisterViewOld.xib */; };
 		18D5BD9725F90EE70037CB70 /* RegisterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD8F25F90EE70037CB70 /* RegisterEntity.swift */; };
 		18D5BD9825F90EE70037CB70 /* RegisterWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9025F90EE70037CB70 /* RegisterWireframe.swift */; };
 		18D5BDA125F90EF40037CB70 /* PermissionsContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D5BD9925F90EF30037CB70 /* PermissionsContract.swift */; };
@@ -118,6 +119,7 @@
 		18A1A5A726079EA10067DFA4 /* Development.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Development.xcconfig; sourceTree = "<group>"; };
 		18A1A5A826079EC20067DFA4 /* Production.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Production.xcconfig; sourceTree = "<group>"; };
 		18A1A5A92607B5E10067DFA4 /* UISwitchExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UISwitchExtension.swift; sourceTree = "<group>"; };
+		18B0A089260F460C007495F4 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
 		18D5BD4925F902B70037CB70 /* atSistemasApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = atSistemasApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18D5BD4C25F902B70037CB70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		18D5BD4E25F902B70037CB70 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,7 +144,7 @@
 		18D5BD8B25F90EE70037CB70 /* RegisterBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterBuilder.swift; sourceTree = "<group>"; };
 		18D5BD8C25F90EE70037CB70 /* RegisterInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterInteractor.swift; sourceTree = "<group>"; };
 		18D5BD8D25F90EE70037CB70 /* RegisterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterView.swift; sourceTree = "<group>"; };
-		18D5BD8E25F90EE70037CB70 /* RegisterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterView.xib; sourceTree = "<group>"; };
+		18D5BD8E25F90EE70037CB70 /* RegisterViewOld.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RegisterViewOld.xib; sourceTree = "<group>"; };
 		18D5BD8F25F90EE70037CB70 /* RegisterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterEntity.swift; sourceTree = "<group>"; };
 		18D5BD9025F90EE70037CB70 /* RegisterWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterWireframe.swift; sourceTree = "<group>"; };
 		18D5BD9925F90EF30037CB70 /* PermissionsContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsContract.swift; sourceTree = "<group>"; };
@@ -349,11 +351,11 @@
 			children = (
 				18D5BD6325F902C80037CB70 /* atSistemasAppTests.swift */,
 				18ED8A3B2608C4DA007101F8 /* CharacterModelTest.swift */,
-				18ED8A412608CE54007101F8 /* ThumbnailModelTest.swift */,
 				18ED8A3F2608CD7A007101F8 /* ComicModelTest.swift */,
 				18D5BD6525F902C80037CB70 /* Info.plist */,
 				18ED8A432608E1F0007101F8 /* MarvelListInteractorMock.swift */,
 				18ED8A452608E444007101F8 /* MarvelListInteractorTest.swift */,
+				18ED8A412608CE54007101F8 /* ThumbnailModelTest.swift */,
 			);
 			path = atSistemasAppTests;
 			sourceTree = "<group>";
@@ -396,8 +398,9 @@
 				18D5BD8C25F90EE70037CB70 /* RegisterInteractor.swift */,
 				18D5BD8A25F90EE70037CB70 /* RegisterPresenter.swift */,
 				18D5BD8D25F90EE70037CB70 /* RegisterView.swift */,
-				18D5BD8E25F90EE70037CB70 /* RegisterView.xib */,
+				18D5BD8E25F90EE70037CB70 /* RegisterViewOld.xib */,
 				18D5BD9025F90EE70037CB70 /* RegisterWireframe.swift */,
+				18B0A089260F460C007495F4 /* RegisterView.xib */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -679,13 +682,14 @@
 			files = (
 				18DFC1CE25FE9D3D005632EE /* ComicCell.xib in Resources */,
 				18D5BD5925F902C70037CB70 /* LaunchScreen.storyboard in Resources */,
-				18D5BD9625F90EE70037CB70 /* RegisterView.xib in Resources */,
+				18D5BD9625F90EE70037CB70 /* RegisterViewOld.xib in Resources */,
 				18DFC19B25FCCBA3005632EE /* MarvelListCell.xib in Resources */,
 				185F25382603833E000E394B /* PermissionsCell.xib in Resources */,
 				18D5BD8625F90ECE0037CB70 /* MarvelListView.xib in Resources */,
 				18DFC1B325FE7E49005632EE /* MarvelDetailView.xib in Resources */,
 				18D5BD5625F902C70037CB70 /* Assets.xcassets in Resources */,
 				18DFC1C125FE92EE005632EE /* MarvelDetailComicsCell.xib in Resources */,
+				18B0A08A260F460C007495F4 /* RegisterView.xib in Resources */,
 				18DFC1C525FE931C005632EE /* MarvelDetailDataCell.xib in Resources */,
 				18A1A599260792A30067DFA4 /* Preferences.plist in Resources */,
 			);

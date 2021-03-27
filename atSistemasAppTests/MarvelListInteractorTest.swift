@@ -13,10 +13,11 @@ import XCTest
 class MarvelListInteractorTest: XCTestCase {
     
     var mockCharsDataManager: MarvelListInteractorMock!
-    var marvelListInteractor: MarvelListInteractor!
+    var userDefaultsProvider: UserDefaultsProvider!
     
     override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+         mockCharsDataManager = MarvelListInteractorMock()
+         userDefaultsProvider = UserDefaultsProvider()
     }
     
     override func tearDown() {
@@ -29,6 +30,18 @@ class MarvelListInteractorTest: XCTestCase {
         }.done { response in
             XCTAssertTrue(response.isEmpty)
         }.catch { _ in }
+    }
+    
+    func testSaveUserViewRetrieveViewNumber() {
+        mockCharsDataManager.saveLastUserView()
+        XCTAssertEqual(userDefaultsProvider.loadUserView(), 2)
+    }
+    
+    func testFavouriteCharModelWork() {
+        mockCharsDataManager.saveFavouriteChar(name: "TestName")
+        XCTAssertTrue(mockCharsDataManager.isFavouriteChar(name: "TestName"))
+        mockCharsDataManager.deleteFavouriteChar(name: "TestName")
+        XCTAssertFalse(mockCharsDataManager.isFavouriteChar(name: "TestName"))
     }
 }
 

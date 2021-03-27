@@ -70,7 +70,7 @@ class MarvelListView: BaseViewController, MarvelListViewContract {
         tableView.dataSource = self
         tableView.delegate = self
         
-        self.title = AppDelegate.appName
+        self.navigationController?.navigationBar.topItem?.title = AppDelegate.appName
     }
     
     fileprivate func updateWithFavourites() {

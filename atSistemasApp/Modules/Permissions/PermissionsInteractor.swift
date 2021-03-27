@@ -9,9 +9,7 @@
 
 import Foundation
 import PromiseKit
-import AVFoundation
 import CoreLocation
-import PhotosUI
 
 class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     weak var output: PermissionsInteractorOutputContract?
@@ -20,10 +18,6 @@ class PermissionsInteractor: NSObject, PermissionsInteractorContract {
     var coreDataProvider: CoreDataProvider
     var permissionProvider = PermissionProvider()
     
-    lazy var locationManager: CLLocationManager = {
-        let manager = CLLocationManager()
-        return manager
-    }()
     /// User loc
     var currentLocation: CLLocation?
     var permission: Permission?

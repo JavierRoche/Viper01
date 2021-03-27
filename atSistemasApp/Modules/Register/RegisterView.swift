@@ -79,7 +79,7 @@ class RegisterView: BaseViewController, RegisterViewContract {
         emailText.delegate = self
         passwordText.delegate = self
         repeatText.delegate = self
-        self.title = AppDelegate.appName
+        self.navigationController?.navigationBar.topItem?.title = AppDelegate.appName
     }
     
     fileprivate func signUpInterface() {

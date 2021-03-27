@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import AVFoundation
 import CoreLocation
 import PhotosUI
 import LocalAuthentication
@@ -23,10 +22,10 @@ class PermissionProvider: PermissionProviderContract {
         return context
     }()
     
-    /// User loc
-    var currentLocation: CLLocation?
     var error: NSError?
     
+    
+    // MARK: Camera
     
     func isEnabledCameraPermission() -> Promise<Bool> {
         return Promise<Bool> { promise in
@@ -34,17 +33,20 @@ class PermissionProvider: PermissionProviderContract {
         }
     }
     
+    /// README: Accederiamos a la camara trasera con AVCaptureDevice y la intentariamos inicializar sobre un AVCaptureDeviceInput.
+    /// Segun si queremos tomar una foto o, por ejemplo, leer un QR pues inicializariamos el output con imagen fija o video.
+    /// En los metodos delegados AVCapturePhotoCaptureDelegate y/o AVCaptureVideoDataOutputSampleBufferDelegate
+    /// nos llegarian las fotos o los frames de las fotos, respecticamente, con los que hariamos lo que necesitasemos.
     func requestForCameraPermission() -> Promise<Bool> {
         return Promise<Bool> { promise in
-            /// README: Accederiamos a la camara trasera con AVCaptureDevice y la intentariamos inicializar sobre un AVCaptureDeviceInput.
-            /// Segun si queremos tomar una foto o, por ejemplo, leer un QR pues inicializariamos el output con imagen fija o video.
-            /// En los metodos delegados AVCapturePhotoCaptureDelegate y/o AVCaptureVideoDataOutputSampleBufferDelegate
-            /// nos llegarian las fotos o los frames de las fotos, respecticamente, con los que hariamos lo que necesitasemos.
             AVCaptureDevice.requestAccess(for: .video) { status in
                 promise.fulfill(status ? true : false)
             }
         }
     }
+    
+    
+    // MARK: Geolocation
     
     func isEnabledLocationPermission() -> Promise<Bool> {
         return Promise<Bool> { promise in
@@ -53,12 +55,15 @@ class PermissionProvider: PermissionProviderContract {
         }
     }
     
+    /// Request permissions and activate search
     func requestForLocationPermission(interactor: PermissionsInteractor) {
-        /// Request permissions and activate search
         locationManager.delegate = interactor
         locationManager.requestAlwaysAuthorization()
         locationManager.startUpdatingLocation()
     }
+    
+    
+    // MARK: Photos Library
     
     func isEnabledPhotosLibraryPermission() -> Promise<Bool> {
         return Promise<Bool> { promise in
@@ -82,6 +87,9 @@ class PermissionProvider: PermissionProviderContract {
             }
         }
     }
+    
+    
+    // MARK: Biometric
     
     func isEnabledBiometricPermission() -> Promise<Bool> {
         return Promise<Bool> { promise in
